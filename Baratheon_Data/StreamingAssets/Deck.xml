@@ -1,0 +1,17 @@
+<DeckCollection>
+  <Deck>
+    <card>
+      <Name>Commerce</Name>
+      <Type>Ability</Type>
+      <Subtype></Subtype>
+      <Element></Element>
+      <Strength></Strength>
+      <Armor></Armor>
+      <Agility></Agility>
+      <Will></Will>
+      <Traits></Traits>
+      <Text>Destroy a friendly Item. Reveal the top 5 cards of your deck. Add an item of the same type to your Inventory.</Text>
+      <Materials></Materials>
+    </card>
+  </Deck>
+</DeckCollection>
