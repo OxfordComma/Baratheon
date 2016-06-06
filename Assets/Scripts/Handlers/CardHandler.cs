@@ -16,6 +16,6 @@ public class CardHandler : MonoBehaviour {
 
     public void ImportCards()
     {
-		allCards = (Set.Load (Path.Combine(Application.dataPath, "StreamingAssets/Cards.xml")) as Set).set;
+		allCards = (Set.Load (Application.streamingAssetsPath + "/Cards.xml") as Set).set;
     }
 }

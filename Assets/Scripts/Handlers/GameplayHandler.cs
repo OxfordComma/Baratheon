@@ -13,6 +13,7 @@ public class GameplayHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		cardUIPrefab = Resources.Load ("Prefabs/CardUI") as GameObject;
         currentPlayer = GameObject.Find("Player Handler").GetComponent<PlayerHandler>().currentPlayer;
         playerDeck = currentPlayer.deck;
 
@@ -37,6 +38,6 @@ public class GameplayHandler : MonoBehaviour
         playerDeck.cards.RemoveAt(0);
         GameObject cardUIToAdd = Instantiate(cardUIPrefab);
         cardUIToAdd.GetComponent<CardUI>().SetCard(card);
-        cardUIToAdd.transform.SetParent(handWindow.transform);
+		cardUIToAdd.transform.SetParent(handWindow.transform, false);
     }
 }
