@@ -29,7 +29,24 @@ public class GameplayHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.DrawLine(mousePos, Vector2.zero, Color.cyan);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity);
+            //Debug.Log(hit);
+            
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.gameObject.tag);
+            }
+            else
+            {
+                Debug.Log("nothing");
+            }
+            
+        }
     }
 
     public void Draw()
