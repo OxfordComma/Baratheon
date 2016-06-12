@@ -9,6 +9,7 @@ public class GameplayHandler : MonoBehaviour
     public GameObject cardUIPrefab;
     public GameObject handWindow;
 
+	Player whosTurnIsIt;
 
     // Use this for initialization
     void Start()
@@ -36,7 +37,7 @@ public class GameplayHandler : MonoBehaviour
             Debug.DrawLine(mousePos, Vector2.zero, Color.cyan);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity);
             //Debug.Log(hit);
-            
+
             if (hit.collider != null)
             {
                 Debug.Log(hit.collider.gameObject.tag);
