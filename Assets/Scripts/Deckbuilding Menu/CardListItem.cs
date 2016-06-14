@@ -5,7 +5,7 @@ using System.Collections;
 public class CardListItem : MonoBehaviour
 {
 	public GameObject cardListItemPrefab;
-	GameObject setList, deckList;
+	public GameObject setList, deckList;
 	Player currentPlayer;
 
     public Text nameObj;
@@ -39,17 +39,28 @@ public class CardListItem : MonoBehaviour
     
     public void SetCard(Card card)
     {
-        this.nameObj.text = card.Name;
-        this.typeObj.text = card.Type;
-        this.subtypeObj.text = card.Subtype;
-        this.elementObj.text = card.Element;
-        this.strengthObj.text = card.Strength;
-        this.armorObj.text = card.Armor;
-        this.agilityObj.text = card.Agility;
-        this.willObj.text = card.Will;
-        this.traitsObj.text = card.Traits;
-        this.textObj.text = card.Text;
-        this.materialsObj.text = card.Materials;
+        if (nameObj != null)
+            this.nameObj.text = card.Name;
+        if (typeObj != null)
+            this.typeObj.text = card.Type;
+        if (subtypeObj != null)
+            this.subtypeObj.text = card.Subtype;
+        if (elementObj != null)
+            this.elementObj.text = card.Element;
+        if (strengthObj != null)
+            this.strengthObj.text = card.Strength;
+        if (armorObj != null)
+            this.armorObj.text = card.Armor;
+        if (agilityObj != null)
+            this.agilityObj.text = card.Agility;
+        if (willObj != null)
+            this.willObj.text = card.Will;
+        if (traitsObj != null)
+            this.traitsObj.text = card.Traits;
+        if (textObj != null)
+            this.textObj.text = card.Text;
+        if (materialsObj != null)
+            this.materialsObj.text = card.Materials;
 
         this.card = card;
 

@@ -34,4 +34,6 @@ public class Card {
 	{
 		this.Name = "name";
 	}
+
+
 }

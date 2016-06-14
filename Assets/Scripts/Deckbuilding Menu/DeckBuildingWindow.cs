@@ -9,7 +9,8 @@ using UnityEngine.EventSystems;
 public class DeckBuildingWindow : MonoBehaviour {
 	CardHandler cardHandler;
 	PlayerHandler playerHandler;
-    public GameObject cardListItemPrefab;
+    public GameObject cardCollectionItemPrefab;
+    public GameObject cardDeckItemPrefab;
 	public ContentSizeFitter setList, deckList;
 
 
@@ -20,21 +21,21 @@ public class DeckBuildingWindow : MonoBehaviour {
 		List<Card> setCards = cardHandler.allCards;
         foreach (Card card in setCards)
         {
-            GameObject cardListItemObj = Instantiate(cardListItemPrefab);
-            CardListItem cardListItem = cardListItemObj.GetComponent<CardListItem>();
-			cardListItem.SetCard(card);
-            
-            cardListItemObj.transform.SetParent(setList.transform);
+            GameObject collectionListItemObj = Instantiate(cardCollectionItemPrefab);
+            CardListItem collectionListItem = collectionListItemObj.GetComponent<CardListItem>();
+            collectionListItem.SetCard(card);
+
+            collectionListItemObj.transform.SetParent(setList.transform);
         }
 
 		List<Card> playerCards = playerHandler.currentPlayer.deck.cards;
 		foreach (Card card in playerCards) 
 		{
-			GameObject cardListItemObj = Instantiate (cardListItemPrefab);
-			CardListItem cardListItem = cardListItemObj.GetComponent<CardListItem> ();
-			cardListItem.SetCard (card);
+			GameObject deckListItemObj = Instantiate (cardDeckItemPrefab);
+			CardListItem deckListItem = deckListItemObj.GetComponent<CardListItem> ();
+            deckListItem.SetCard (card);
 
-			cardListItem.transform.SetParent (deckList.transform);
+            deckListItem.transform.SetParent (deckList.transform);
 		}
 	}
 	

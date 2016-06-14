@@ -6,10 +6,11 @@ public class GameplayHandler : MonoBehaviour
 {
     Player currentPlayer;
     Deck playerDeck;
-    public GameObject cardUIPrefab;
+    GameObject cardUIPrefab, contextMenuPrefab;
     public GameObject handWindow;
+    Transform zoomedCard = null;
 
-	Player whosTurnIsIt;
+    Player whosTurnIsIt;
 
     // Use this for initialization
     void Start()
@@ -30,24 +31,7 @@ public class GameplayHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Debug.DrawLine(mousePos, Vector2.zero, Color.cyan);
-            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity);
-            //Debug.Log(hit);
 
-            if (hit.collider != null)
-            {
-                Debug.Log(hit.collider.gameObject.tag);
-            }
-            else
-            {
-                Debug.Log("nothing");
-            }
-            
-        }
     }
 
     public void Draw()
@@ -58,4 +42,6 @@ public class GameplayHandler : MonoBehaviour
         cardUIToAdd.GetComponent<CardUI>().SetCard(card);
 		cardUIToAdd.transform.SetParent(handWindow.transform, false);
     }
+
+    
 }
