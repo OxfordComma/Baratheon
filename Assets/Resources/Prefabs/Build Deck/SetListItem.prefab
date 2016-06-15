@@ -131,9 +131,9 @@ GameObject:
   - 114: {fileID: 11453278}
   - 114: {fileID: 11451226}
   - 114: {fileID: 11430332}
-  - 114: {fileID: 11428214}
+  - 114: {fileID: 11456974}
   m_Layer: 5
-  m_Name: CardCollectionItem
+  m_Name: SetListItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,32 +257,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Armor
---- !u!114 &11428214
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c5a2180d39396540b6997e32fb90b4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardListItemPrefab: {fileID: 188210, guid: 5f5936ed5e2680d4a8b8e0ce6379249d, type: 2}
-  setList: {fileID: 0}
-  deckList: {fileID: 0}
-  nameObj: {fileID: 11485672}
-  typeObj: {fileID: 11433590}
-  subtypeObj: {fileID: 11444322}
-  elementObj: {fileID: 11496366}
-  strengthObj: {fileID: 11430364}
-  armorObj: {fileID: 11419008}
-  agilityObj: {fileID: 11448002}
-  willObj: {fileID: 11467464}
-  traitsObj: {fileID: 11477524}
-  textObj: {fileID: 11474874}
-  materialsObj: {fileID: 11430188}
-  recipeObj: {fileID: 11446230}
 --- !u!114 &11430188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -538,7 +512,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11428214}
+      - m_Target: {fileID: 11456974}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -578,6 +552,29 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11456974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6122988c669b814abd8f03ff11c0830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObj: {fileID: 11485672}
+  typeObj: {fileID: 11433590}
+  subtypeObj: {fileID: 11444322}
+  elementObj: {fileID: 11496366}
+  strengthObj: {fileID: 11430364}
+  armorObj: {fileID: 11419008}
+  agilityObj: {fileID: 11448002}
+  willObj: {fileID: 11467464}
+  traitsObj: {fileID: 11477524}
+  textObj: {fileID: 11474874}
+  materialsObj: {fileID: 11430188}
+  recipeObj: {fileID: 11446230}
 --- !u!114 &11467464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1108,7 +1105,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11428214}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClick

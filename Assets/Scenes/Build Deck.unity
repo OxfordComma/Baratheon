@@ -166,7 +166,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 147684, guid: c7f08c7a8705d134bae25f95e81f7055, type: 2}
       propertyPath: m_Name
-      value: SetlistHeader
+      value: SetListtHeader
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7f08c7a8705d134bae25f95e81f7055, type: 2}
@@ -944,11 +944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c96c85de51eb146ad448183e5a00fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardCollectionItemPrefab: {fileID: 147684, guid: c7f08c7a8705d134bae25f95e81f7055,
-    type: 2}
-  cardDeckItemPrefab: {fileID: 188210, guid: 5f5936ed5e2680d4a8b8e0ce6379249d, type: 2}
-  setList: {fileID: 1317361203}
-  deckList: {fileID: 213982197}
 --- !u!224 &1512183340 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22423082, guid: bd6e9c2a3799f4ab7a0669c7a180331d,
@@ -1121,7 +1116,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 188210, guid: 5f5936ed5e2680d4a8b8e0ce6379249d, type: 2}
       propertyPath: m_Name
-      value: DecklistHeader
+      value: DeckListHeader
       objectReference: {fileID: 0}
     - target: {fileID: 22432624, guid: 5f5936ed5e2680d4a8b8e0ce6379249d, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1140,7 +1135,7 @@ Prefab:
       value: -127.95
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 11472392, guid: 5f5936ed5e2680d4a8b8e0ce6379249d, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 5f5936ed5e2680d4a8b8e0ce6379249d, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &2039428539 stripped
@@ -1148,18 +1143,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22418076, guid: 5f5936ed5e2680d4a8b8e0ce6379249d,
     type: 2}
   m_PrefabInternal: {fileID: 2039428538}
---- !u!114 &2039428540 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11473722, guid: 5f5936ed5e2680d4a8b8e0ce6379249d,
-    type: 2}
-  m_PrefabInternal: {fileID: 2039428538}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
---- !u!114 &2039428541 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11456618, guid: 5f5936ed5e2680d4a8b8e0ce6379249d,
-    type: 2}
-  m_PrefabInternal: {fileID: 2039428538}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &2039428542 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 188210, guid: 5f5936ed5e2680d4a8b8e0ce6379249d, type: 2}
@@ -1175,21 +1158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5a2180d39396540b6997e32fb90b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardListItemPrefab: {fileID: 188210, guid: 5f5936ed5e2680d4a8b8e0ce6379249d, type: 2}
-  setList: {fileID: 0}
-  deckList: {fileID: 0}
-  nameObj: {fileID: 2039428541}
-  typeObj: {fileID: 0}
-  subtypeObj: {fileID: 0}
-  elementObj: {fileID: 2039428540}
-  strengthObj: {fileID: 0}
-  armorObj: {fileID: 0}
-  agilityObj: {fileID: 0}
-  willObj: {fileID: 0}
-  traitsObj: {fileID: 0}
-  textObj: {fileID: 0}
-  materialsObj: {fileID: 0}
-  recipeObj: {fileID: 0}
 --- !u!1 &2138243150
 GameObject:
   m_ObjectHideFlags: 0

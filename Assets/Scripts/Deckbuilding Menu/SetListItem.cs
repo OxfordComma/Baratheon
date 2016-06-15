@@ -2,11 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class CardListItem : MonoBehaviour
-{
-	public GameObject cardListItemPrefab;
-	public GameObject setList, deckList;
-	Player currentPlayer;
+public class SetListItem : ListItem {
+    GameObject deckListItemPrefab;
 
     public Text nameObj;
     public Text typeObj;
@@ -20,24 +17,14 @@ public class CardListItem : MonoBehaviour
     public Text textObj;
     public Text materialsObj;
     public Text recipeObj;
-    public Card card;
 
-    // Use this for initialization
-    void Start()
+    public override void Start()
     {
-		deckList = GameObject.Find ("DeckListContent");
-		setList = GameObject.Find ("SetListContent");
-
-		currentPlayer = GameObject.Find ("Player Handler").GetComponent<PlayerHandler>().currentPlayer;
+        base.Start();
+        deckListItemPrefab = Resources.Load("Prefabs/Build Deck/DeckListItem") as GameObject;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    
-    public void SetCard(Card card)
+    public override void SetCard(Card card)
     {
         if (nameObj != null)
             this.nameObj.text = card.Name;
@@ -63,32 +50,15 @@ public class CardListItem : MonoBehaviour
             this.materialsObj.text = card.Materials;
 
         this.card = card;
-
     }
 
-	public void OnClick()
-	{
-        if (this.transform.parent.name == deckList.name)
-            RemoveCardFromDeck(this.card);
-        else if (this.transform.parent.name == setList.name)
-            if (currentPlayer.CanAddCardToDeck(this.card))
-                AddCardToDeck(this.card);
-    }
 
-	void AddCardToDeck(Card card)
-	{
-		GameObject clip = Instantiate (cardListItemPrefab);
-		clip.transform.SetParent (deckList.transform);
-        clip.GetComponent<CardListItem>().SetCard(card);
-		currentPlayer.AddCardToDeck (card);
-		currentPlayer.SaveToXML ();
-	}
-
-    void RemoveCardFromDeck(Card card)
+    public override void OnClick()
     {
-        currentPlayer.RemoveCardFromDeck(card);
-        Destroy(this.gameObject);
+        GameObject deckListItem = Instantiate(deckListItemPrefab);
+        deckListItem.transform.SetParent(deckList.transform);
+        deckListItem.GetComponent<DeckListItem>().SetCard(card);
+        currentPlayer.AddCardToDeck(card);
         currentPlayer.SaveToXML();
     }
-
 }

@@ -27,44 +27,26 @@ desktop: 1680x1050 60Hz; virtual: 5200x1524 at -1600,-474
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.538329 ms
+UnloadTime: 0.532185 ms
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Xml.dll (this message is harmless)
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Configuration.dll (this message is harmless)
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.261280 ms
+UnloadTime: 2.837053 ms
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 246.
-Total: 0.509072 ms (FindLiveObjects: 0.043007 ms CreateObjectMapping: 0.009069 ms MarkObjects: 0.446754 ms  DeleteObjects: 0.007314 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 250.
+Total: 0.416034 ms (FindLiveObjects: 0.017846 ms CreateObjectMapping: 0.008191 ms MarkObjects: 0.383266 ms  DeleteObjects: 0.006143 ms)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.316853 ms
+UnloadTime: 0.374782 ms
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 328.
-Total: 0.436222 ms (FindLiveObjects: 0.029549 ms CreateObjectMapping: 0.014921 ms MarkObjects: 0.388240 ms  DeleteObjects: 0.002925 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 343.
+Total: 0.485081 ms (FindLiveObjects: 0.019017 ms CreateObjectMapping: 0.013750 ms MarkObjects: 0.448802 ms  DeleteObjects: 0.002925 ms)
 
-ArgumentOutOfRangeException: Argument is out of range.
-Parameter name: index
-  at System.Collections.Generic.List`1[Card].get_Item (Int32 index) [0x00000] in <filename unknown>:0 
-  at GameplayHandler.Draw () [0x00000] in <filename unknown>:0 
+NullReferenceException: Object reference not set to an instance of an object
+  at GameFunctionsHandler.Draw (.Player player) [0x00000] in <filename unknown>:0 
   at GameplayHandler.Start () [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
-(-148.4, -76.0, -10.0)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
-
-CardUI (UnityEngine.RectTransform)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
-
-(-136.4, -72.9, -10.0)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
-
-CardUI (UnityEngine.RectTransform)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
-
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 98ac -> priority: 1 
+  Thread -> id: 12e8 -> priority: 1 

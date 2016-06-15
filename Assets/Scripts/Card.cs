@@ -20,20 +20,16 @@ public class Card {
     public string Text;
     public string Materials;
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	public Card()
 	{
 		this.Name = "name";
 	}
 
+    public void Cast(Player player)
+    {
+        Debug.Log("Casting");
 
+        CardFunctionsHandler cfh = new CardFunctionsHandler(player);
+        cfh.AncestralRecall();
+    }
 }

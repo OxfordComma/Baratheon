@@ -46,9 +46,9 @@ GameObject:
   - 114: {fileID: 11433018}
   - 114: {fileID: 11484450}
   - 114: {fileID: 11437576}
-  - 114: {fileID: 11472392}
+  - 114: {fileID: 11492950}
   m_Layer: 5
-  m_Name: CardDeckItem
+  m_Name: DeckListItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,30 +132,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Name
---- !u!114 &11472392
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c5a2180d39396540b6997e32fb90b4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardListItemPrefab: {fileID: 188210}
-  nameObj: {fileID: 11456618}
-  typeObj: {fileID: 0}
-  subtypeObj: {fileID: 0}
-  elementObj: {fileID: 11473722}
-  strengthObj: {fileID: 0}
-  armorObj: {fileID: 0}
-  agilityObj: {fileID: 0}
-  willObj: {fileID: 0}
-  traitsObj: {fileID: 0}
-  textObj: {fileID: 0}
-  materialsObj: {fileID: 0}
-  recipeObj: {fileID: 0}
 --- !u!114 &11473722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,7 +204,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11472392}
+      - m_Target: {fileID: 11492950}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -241,6 +217,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11492950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f2f8857410f614b8f3c0922376b6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObj: {fileID: 11456618}
+  elementObj: {fileID: 11473722}
 --- !u!222 &22258050
 CanvasRenderer:
   m_ObjectHideFlags: 1

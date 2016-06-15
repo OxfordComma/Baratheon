@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CardDecklistItem : MonoBehaviour {
+public class Test : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,4 +12,9 @@ public class CardDecklistItem : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void TestFunction()
+    {
+        Debug.Log("Test");
+    }
 }
