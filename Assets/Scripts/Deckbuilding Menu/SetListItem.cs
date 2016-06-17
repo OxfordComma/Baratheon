@@ -27,27 +27,27 @@ public class SetListItem : ListItem {
     public override void SetCard(Card card)
     {
         if (nameObj != null)
-            this.nameObj.text = card.Name;
+            this.nameObj.text = card.name;
         if (typeObj != null)
-            this.typeObj.text = card.Type;
+            this.typeObj.text = card.type;
         if (subtypeObj != null)
-            this.subtypeObj.text = card.Subtype;
+            this.subtypeObj.text = card.subtype;
         if (elementObj != null)
-            this.elementObj.text = card.Element;
+            this.elementObj.text = card.element;
         if (strengthObj != null)
-            this.strengthObj.text = card.Strength;
+            this.strengthObj.text = card.strength;
         if (armorObj != null)
-            this.armorObj.text = card.Armor;
+            this.armorObj.text = card.armor;
         if (agilityObj != null)
-            this.agilityObj.text = card.Agility;
+            this.agilityObj.text = card.agility;
         if (willObj != null)
-            this.willObj.text = card.Will;
+            this.willObj.text = card.will;
         if (traitsObj != null)
-            this.traitsObj.text = card.Traits;
+            this.traitsObj.text = card.traits;
         if (textObj != null)
-            this.textObj.text = card.Text;
+            this.textObj.text = card.text;
         if (materialsObj != null)
-            this.materialsObj.text = card.Materials;
+            this.materialsObj.text = card.materials;
 
         this.card = card;
     }
@@ -58,7 +58,7 @@ public class SetListItem : ListItem {
         GameObject deckListItem = Instantiate(deckListItemPrefab);
         deckListItem.transform.SetParent(deckList.transform);
         deckListItem.GetComponent<DeckListItem>().SetCard(card);
-        currentPlayer.AddCardToDeck(card);
-        currentPlayer.SaveToXML();
+        //localPlayer.AddCardToDeck(card);
+        localPlayer.SaveToXML();
     }
 }

@@ -34,7 +34,7 @@ public class DeckBuildingWindow : MonoBehaviour {
             setListItemObj.transform.SetParent(setList.transform);
         }
 
-		List<Card> playerCards = playerHandler.currentPlayer.deck.cards;
+		List<Card> playerCards = GameController.GetGameController().localPlayer.deck.cards;
 		foreach (Card card in playerCards) 
 		{
 			GameObject deckListItemObj = Instantiate (deckListItemPrefab);

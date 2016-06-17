@@ -5,28 +5,23 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
-[XmlRoot("set")]
-public class Set : CardGroup
+public class Set
 {
-	[XmlElement("card")]
-	public List<Card> set;
-	// Use this for initialization
-	void Start ()
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
-
+	public List<Card> cards;
 	public Set()
 	{
-		this.set = new List<Card> ();
+		this.cards = new List<Card> ();
 	}
 
+	public Set(SetXML setxml)
+	{
+		
+		for (int i = 0; i < setxml.cards.Count; i++) {
+			Card card = new Card (setxml.cards [i]);
+			cards.Add (card);
+		}
+	}
+	/*
 	public void Save(string path)
 	{
 		var serializer = new XmlSerializer(typeof(Set));
@@ -44,5 +39,6 @@ public class Set : CardGroup
 			return serializer.Deserialize(stream) as Set;
 		}
 	}
+	*/
 }
 

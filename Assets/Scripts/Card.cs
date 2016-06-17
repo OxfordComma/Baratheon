@@ -5,31 +5,37 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Collections;
 
+//public enum element {fire, water, earth, air};
+
 public class Card {
-	[XmlElement]
-    public string Name;
-    public string Type;
-    public string Subtype;
-    public string Element;
-    public string Cost;
-    public string Strength;
-    public string Armor;
-    public string Agility;
-    public string Will;
-    public string Traits;
-    public string Text;
-    public string Materials;
+	public string name;
+    public string type;
+    public string subtype;
+    public string element;
+    public string cost;
+    public string strength;
+    public string armor;
+    public string agility;
+    public string will;
+    public string traits;
+    public string text;
+    public string materials;
 
 	public Card()
 	{
-		this.Name = "name";
+		this.name = "defaultName";
+	}
+
+	public Card(CardXML cardxml)
+	{
+		this.name = cardxml.Name;
 	}
 
     public void Cast(Player player)
     {
         Debug.Log("Casting");
 
-        CardFunctionsHandler cfh = new CardFunctionsHandler(player);
+        CardFunctionsFactory cfh = new CardFunctionsFactory(player);
         cfh.AncestralRecall();
     }
 }

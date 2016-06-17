@@ -10,8 +10,7 @@ public class PlayerNameTextbox : MonoBehaviour {
 	}
 
 	void Awake () {
-		PlayerHandler playerHandler = GameObject.Find ("Player Handler").GetComponent<PlayerHandler> ();
-		playerNameText.text = playerHandler.currentPlayer.name;
+		playerNameText.text = GameController.GetGameController().localPlayer.name;
 	}
 	
 	// Update is called once per frame

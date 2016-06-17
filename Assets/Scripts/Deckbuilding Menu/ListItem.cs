@@ -6,14 +6,14 @@ public class ListItem : MonoBehaviour
 {
     public Card card;
     protected GameObject setList, deckList;
-	public Player currentPlayer;
+	public Player localPlayer;
 
     // Use this for initialization
     public virtual void Start()
     {
 		deckList = GameObject.Find ("DeckListContent");
 		setList = GameObject.Find ("SetListContent");
-		currentPlayer = GameObject.Find ("Player Handler").GetComponent<PlayerHandler>().currentPlayer;
+		localPlayer = GameController.GetGameController().localPlayer;
     }
 
     // Update is called once per frame

@@ -4,15 +4,15 @@ using UnityEngine.UI;
 
 public class CardsInDeckCounter : MonoBehaviour {
 	public Text cardsInDeckText;
-	Player currentPlayer;
+	Player localPlayer;
 
 	// Use this for initialization
 	void Start () {
-		currentPlayer = GameObject.Find ("Player Handler").GetComponent<PlayerHandler> ().currentPlayer;
+		localPlayer = GameController.GetGameController().localPlayer;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		cardsInDeckText.text = currentPlayer.deck.cards.Count.ToString() + "/30";
+		//cardsInDeckText.text = localPlayer.deck.cards.Count.ToString() + "/30";
 	}
 }

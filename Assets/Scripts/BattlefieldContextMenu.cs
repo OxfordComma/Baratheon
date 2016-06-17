@@ -4,21 +4,21 @@ using System.Collections;
 
 public delegate void OnClickFunction(Player player);
 
-public class ContextMenu : MonoBehaviour
+public class BattlefieldContextMenu : MonoBehaviour
 {
     public void AddContextMenuItem(string buttonName, Player player, Card card)
     {
         GameObject cmItemObj = Instantiate(Resources.Load("Prefabs/ContextMenuItem") as GameObject);
         cmItemObj.transform.SetParent(this.transform);
-        
-        cmItemObj.GetComponent<Button>().onClick.AddListener(delegate { card.Cast(player); } );
+		Button cmItemObjButton = cmItemObj.GetComponent<Button> ();
+        cmItemObjButton.onClick.AddListener(delegate { 
+			card.Cast(player); 
+		} );
+		cmItemObjButton.onClick.AddListener (delegate {
+			Destroy(cmItemObj);
+		});
         cmItemObj.GetComponentInChildren<Text>().text = buttonName;
         
     }
-
-    public void TestFunction()
-    {
-        Debug.Log("Test");
-    }
-	
 }
+

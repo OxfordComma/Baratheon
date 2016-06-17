@@ -24,8 +24,8 @@ public class CardInHand : CardUI {
     public void SetCard(Card card)
     {
         this.card = card;
-        this.nameText.text = card.Name;
-        this.traitsText.text = card.Traits;
-        this.textText.text = card.Text;
+        this.nameText.text = card.name;
+        this.traitsText.text = card.traits;
+        this.textText.text = card.text;
     }
 }
