@@ -39,8 +39,8 @@ public class LoginHandler : MonoBehaviour {
 			CreateLogin (nameInLoginField);
 		else 
 		{
-			playerHandler.activePlayer = new Player (
-				PlayerXML.Load (Path.Combine (Application.persistentDataPath, "users/" + nameInLoginField + "/player.xml"))
+			playerHandler.activePlayer = 
+				Player.Load (Path.Combine (Application.persistentDataPath, "users/" + nameInLoginField + "/player.xml")
 			);
 		}
 
@@ -54,4 +54,11 @@ public class LoginHandler : MonoBehaviour {
 		newPlayer.SaveToXML ();
         playerHandler.activePlayer = newPlayer;
     }
+
+	public void Logout()
+	{
+		GameController.GetGameController().localPlayer.SaveToXML();
+		GameController.GetGameController().localPlayer = null;
+		GameController.GoToLoginScreen();
+	}
 }

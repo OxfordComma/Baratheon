@@ -26,12 +26,12 @@ public class DeckXML : CardGroupXML
 		}
 	}
 
-	public static Deck Load(string path)
+	public static DeckXML Load(string path)
 	{
 		var serializer = new XmlSerializer(typeof(Deck));
 		using (var stream = new FileStream(path, FileMode.Open))
 		{
-			return serializer.Deserialize(stream) as Deck;
+			return serializer.Deserialize(stream) as DeckXML;
 		}
 	}
 	/*

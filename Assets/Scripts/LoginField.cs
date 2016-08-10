@@ -45,13 +45,13 @@ public class LoginField : MonoBehaviour {
 		Directory.CreateDirectory (Path.Combine (Application.persistentDataPath, "users/" + username));
 		Player newPlayer = new Player(username);
 		newPlayer.SaveToXML ();
-		GameObject.FindWithTag("GameController").GetComponent<GameController>().localPlayer = newPlayer;
+		GameController.GetGameController().localPlayer = newPlayer;
 	}
 
 	public void LoadExistingPlayer(string username)
 	{
-		GameObject.FindWithTag("GameController").GetComponent<GameController>().localPlayer = new Player (
-			PlayerXML.Load (Path.Combine (Application.persistentDataPath, "users/" + username + "/player.xml"))
+		GameController.GetGameController().localPlayer =
+			Player.Load (Path.Combine (Application.persistentDataPath, "users/" + username + "/player.xml")
 		);
 	}
 }

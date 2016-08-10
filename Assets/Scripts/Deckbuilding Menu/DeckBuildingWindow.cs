@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class DeckBuildingWindow : MonoBehaviour {
+	public Text cardsInDeckText;
 	CardHandler cardHandler;
 	PlayerHandler playerHandler;
     GameObject setListItemPrefab, deckListItemPrefab;
@@ -16,16 +17,14 @@ public class DeckBuildingWindow : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-		cardHandler = GameObject.Find ("Card Handler").GetComponent<CardHandler>();
-		playerHandler = GameObject.Find ("Player Handler").GetComponent<PlayerHandler> ();
-
-        setListItemPrefab = Resources.Load("Prefabs/Build Deck/SetListItem") as GameObject;
-        deckListItemPrefab = Resources.Load("Prefabs/Build Deck/DeckListItem") as GameObject;
+        setListItemPrefab = Resources.Load("Prefabs/Deckbuilding/SetListItem") as GameObject;
+        deckListItemPrefab = Resources.Load("Prefabs/Deckbuilding/DeckListItem") as GameObject;
 
         deckList = GameObject.Find("DeckListContent");
         setList = GameObject.Find("SetListContent");
 
-        List<Card> setCards = cardHandler.allCards;
+		List<Card> setCards = GameController.GetGameController().AllCards;
+
         foreach (Card card in setCards)
         {
             GameObject setListItemObj = Instantiate(setListItemPrefab);
@@ -35,6 +34,7 @@ public class DeckBuildingWindow : MonoBehaviour {
         }
 
 		List<Card> playerCards = GameController.GetGameController().localPlayer.deck.cards;
+
 		foreach (Card card in playerCards) 
 		{
 			GameObject deckListItemObj = Instantiate (deckListItemPrefab);
@@ -43,6 +43,9 @@ public class DeckBuildingWindow : MonoBehaviour {
 
             deckListItem.transform.SetParent (deckList.transform);
 		}
+
+		GameObject.Find("CardCounter").GetComponent<Text>().text = 
+			GameController.GetGameController().localPlayer.deck.cards.Count.ToString() + "/30";
 	}
 	
 	// Update is called once per frame

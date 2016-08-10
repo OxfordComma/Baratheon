@@ -19,7 +19,7 @@ public class DeckListItem : ListItem {
 
     public override void OnClick()
     {
-        //localPlayer.RemoveCardFromDeck(card);
+        localPlayer.RemoveCardFromDeck(card);
         Destroy(this.gameObject);
         localPlayer.SaveToXML();
     }

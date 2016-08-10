@@ -6,10 +6,10 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Linq;
 
-//[XmlRoot("deck")]
+[XmlRoot("deck")]
 public class Deck
 {
-	//[XmlElement("card")]
+	[XmlElement("card")]
 	public List<Card> cards;
     // Use this for initialization
     void Start()
@@ -34,7 +34,7 @@ public class Deck
 			cards.Add (new Card (cardxml));
 		}
 	}
-	/*
+
 	public void Save(string path)
 	{
 		var serializer = new XmlSerializer(typeof(Deck));
@@ -52,7 +52,7 @@ public class Deck
 			return serializer.Deserialize(stream) as Deck;
 		}
 	}
-	*/
+
     public void AddCard(Card card)
     {
 		cards.Add(card);

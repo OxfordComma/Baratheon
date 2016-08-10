@@ -38,7 +38,8 @@ public class PlayerXML
         var serializer = new XmlSerializer(typeof(PlayerXML));
         using (var stream = new FileStream(path, FileMode.Open))
         {
-            return serializer.Deserialize(stream) as PlayerXML;
+			PlayerXML pxml = serializer.Deserialize(stream) as PlayerXML;
+			return pxml;
         }
     }
 }

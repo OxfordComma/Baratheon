@@ -5,9 +5,8 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Collections;
 
-//public enum element {fire, water, earth, air};
-
 public class Card {
+	[XmlElement]
 	public string name;
     public string type;
     public string subtype;
@@ -29,6 +28,17 @@ public class Card {
 	public Card(CardXML cardxml)
 	{
 		this.name = cardxml.Name;
+		this.type = cardxml.Type;
+		this.subtype = cardxml.Subtype;
+		this.element = cardxml.Element;
+		this.cost = cardxml.Cost;
+		this.strength = cardxml.Strength;
+		this.armor = cardxml.Armor;
+		this.agility = cardxml.Agility;
+		this.will = cardxml.Will;
+		this.traits = cardxml.Traits;
+		this.text = cardxml.Text;
+		this.materials = cardxml.Materials;
 	}
 
     public void Cast(Player player)

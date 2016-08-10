@@ -15,12 +15,13 @@ public class Set
 
 	public Set(SetXML setxml)
 	{
-		
+		this.cards = new List<Card> ();
 		for (int i = 0; i < setxml.cards.Count; i++) {
 			Card card = new Card (setxml.cards [i]);
 			cards.Add (card);
 		}
 	}
+
 	/*
 	public void Save(string path)
 	{

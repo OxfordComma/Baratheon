@@ -21,7 +21,7 @@ public class SetListItem : ListItem {
     public override void Start()
     {
         base.Start();
-        deckListItemPrefab = Resources.Load("Prefabs/Build Deck/DeckListItem") as GameObject;
+        deckListItemPrefab = Resources.Load("Prefabs/Deckbuilding/DeckListItem") as GameObject;
     }
 
     public override void SetCard(Card card)
@@ -58,7 +58,11 @@ public class SetListItem : ListItem {
         GameObject deckListItem = Instantiate(deckListItemPrefab);
         deckListItem.transform.SetParent(deckList.transform);
         deckListItem.GetComponent<DeckListItem>().SetCard(card);
-        //localPlayer.AddCardToDeck(card);
+        localPlayer.AddCardToDeck(card);
         localPlayer.SaveToXML();
+
+		GameObject.Find("CardCounter").GetComponent<Text>().text = 
+			GameController.GetGameController().localPlayer.deck.cards.Count.ToString() + "/30";
+
     }
 }

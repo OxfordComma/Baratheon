@@ -6,6 +6,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
+[XmlRoot("player")]
 public class Player
 {
 	public string name;
@@ -28,12 +29,7 @@ public class Player
 		this.name = "playerName";
 		this.deck = new Deck();
 	}
-
-	public Player(PlayerXML playerxml)
-	{
-		this.name = playerxml.name;
-	}
-
+		
     public Player(string name)
     {
         this.name = name;
@@ -42,10 +38,10 @@ public class Player
 
 	public void SaveToXML()
 	{
-		PlayerXML playerxml = new PlayerXML (this);
-		playerxml.Save (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
+		Save (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
 	}
-	/*
+
+
     public void Save(string path)
     {
         var serializer = new XmlSerializer(typeof(Player));
@@ -78,6 +74,6 @@ public class Player
 	{
 		return true;
 	}
-	*/
+
 }
 

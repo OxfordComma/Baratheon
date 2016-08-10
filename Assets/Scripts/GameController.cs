@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
 {
 	[HideInInspector]
 	public Player localPlayer;
-	Set allCards;
+	public Set set; 
 
     GameObject cardInHandPrefab, contextMenuPrefab;
 	GameObject escapeMenuPrefab;
@@ -19,13 +19,18 @@ public class GameController : MonoBehaviour
 
 	GameFunctionsFactory gameFunctionsFactory = new GameFunctionsFactory();
 
+	public List<Card> AllCards
+	{
+		get { return set.cards; }
+	}
+
 
     // Use this for initialization
     void Start()
     {
 		DontDestroyOnLoad (this);
 
-		//allCards = new Set(SetXML.Load (Application.streamingAssetsPath + "/Cards.xml"));
+		set = new Set(SetXML.Load (Application.streamingAssetsPath + "/Cards.xml"));
 
         contextMenuPrefab = Resources.Load("Prefabs/ContextMenu") as GameObject;
         cardInHandPrefab = Resources.Load("Prefabs/Battlefield/CardUI") as GameObject;
@@ -114,13 +119,6 @@ public class GameController : MonoBehaviour
 	public static void GoToBattlefield()
 	{
 		SceneManager.LoadScene ("Battlefield");
-	}
-
-	public void Logout()
-	{
-		GameController.GetGameController().localPlayer.SaveToXML();
-		GameController.GetGameController().localPlayer = null;
-		GoToLoginScreen();
 	}
 
 
