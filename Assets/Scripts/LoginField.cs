@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 using System.Collections;
 using System.Linq;
@@ -7,20 +8,26 @@ using System.Xml.Serialization;
 
 public class LoginField : MonoBehaviour {
 
+	NetworkClient myClient;
+
+	void Start() {
+		myClient = new NetworkClient ();
+		myClient.RegisterHandler (MsgType.Connect, OnConnected);
+	}
+
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Return)) {
-			Login();
+			myClient.Connect ("127.0.0.1", 7777);
 		}
 	}
 
 	public void Login()
 	{
-		/*
 		SetXML setxml = new SetXML ();
 		setxml.cards.Add(new CardXML());
 		setxml.Save (Path.Combine (Application.persistentDataPath, "testplayer.xml"));
 		//Debug.Log (Application.persistentDataPath);
-		*/
+
 
 		if (!Directory.Exists (Path.Combine (Application.persistentDataPath, "users")))
 			Directory.CreateDirectory(Path.Combine (Application.persistentDataPath, "users"));
@@ -37,7 +44,11 @@ public class LoginField : MonoBehaviour {
 			LoadExistingPlayer (nameInLoginField);
 		}
 
+		ClientScene.AddPlayer (myClient.connection, 0);
+
+
 		Navigation.StaticGoToMainMenu ();
+
 	}
 
 	public void CreatePlayer(string username)
@@ -53,5 +64,12 @@ public class LoginField : MonoBehaviour {
 		GameController.GetGameController().localPlayer =
 			Player.Load (Path.Combine (Application.persistentDataPath, "users/" + username + "/player.xml")
 		);
+	}
+
+	public void OnConnected(NetworkMessage netMsg)
+	{
+		Debug.Log ("Connected to server");
+		ClientScene.AddPlayer (myClient.connection, 0);
+		Login ();
 	}
 }

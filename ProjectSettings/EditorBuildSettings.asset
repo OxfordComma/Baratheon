@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Build Deck.unity
   - enabled: 1
     path: Assets/Scenes/Battlefield.unity
+  - enabled: 1
+    path: Assets/Scenes/DedicatedServer.unity
