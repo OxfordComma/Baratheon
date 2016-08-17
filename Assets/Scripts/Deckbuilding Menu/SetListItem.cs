@@ -58,7 +58,7 @@ public class SetListItem : ListItem {
         GameObject deckListItem = Instantiate(deckListItemPrefab);
         deckListItem.transform.SetParent(deckList.transform);
         deckListItem.GetComponent<DeckListItem>().SetCard(card);
-        localPlayer.AddCardToDeck(card);
+        //localPlayer.AddCardToDeck(card);
         localPlayer.SaveToXML();
 
 		GameObject.Find("CardCounter").GetComponent<Text>().text = 

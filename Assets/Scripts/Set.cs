@@ -5,8 +5,10 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
+[XmlRoot("set")]
 public class Set
 {
+	[XmlArray("cards"), XmlArrayItem("card")]
 	public List<Card> cards;
 	public Set()
 	{

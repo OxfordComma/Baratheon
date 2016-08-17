@@ -10,23 +10,12 @@ using System.Xml.Serialization;
 public class Player
 {
 	public string name;
+	[XmlElement]
 	public Deck deck;
-
-	// Use this for initialization
-	void Start ()
-	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		
-	}
 
 	public Player()
 	{
-		this.name = "playerName";
+		this.name = "playerDude";
 		this.deck = new Deck();
 	}
 		
@@ -40,7 +29,6 @@ public class Player
 	{
 		Save (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
 	}
-
 
     public void Save(string path)
     {
@@ -59,21 +47,5 @@ public class Player
             return serializer.Deserialize(stream) as Player;
         }
     }
-	
-    public void AddCardToDeck(Card card)
-    {
-        deck.AddCard(card);
-    }
-
-	public void RemoveCardFromDeck(Card card)
-	{
-		deck.RemoveCard (card);
-	}
-
-	public bool CanAddCardToDeck(Card card)
-	{
-		return true;
-	}
-
 }
 

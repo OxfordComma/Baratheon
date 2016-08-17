@@ -24,7 +24,6 @@ public class GameController : MonoBehaviour
 		get { return set.cards; }
 	}
 
-
     // Use this for initialization
     void Start()
     {

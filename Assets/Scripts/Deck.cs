@@ -6,10 +6,9 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Linq;
 
-[XmlRoot("deck")]
 public class Deck
 {
-	[XmlElement("card")]
+	[XmlArray("cards"), XmlArrayItem("card")]
 	public List<Card> cards;
     // Use this for initialization
     void Start()
