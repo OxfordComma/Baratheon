@@ -41,7 +41,7 @@ public class Card {
 		this.materials = cardxml.Materials;
 	}
 
-    public void Cast(Player player)
+    public void Cast(NetworkPlayer player)
     {
         Debug.Log("Casting");
 

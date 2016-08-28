@@ -50,7 +50,7 @@ public class LoginHandler : MonoBehaviour {
 	public void CreateLogin(string username)
 	{
 		Directory.CreateDirectory (Path.Combine (Application.persistentDataPath, "users/" + username));
-		Player newPlayer = new Player(username);
+		Player newPlayer = new Player(username, new Deck());
 		newPlayer.SaveToXML ();
         playerHandler.activePlayer = newPlayer;
     }

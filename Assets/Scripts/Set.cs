@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 [XmlRoot("set")]
 public class Set
 {
-	[XmlArray("cards"), XmlArrayItem("card")]
+	[XmlElement("card")]
 	public List<Card> cards;
 	public Set()
 	{
@@ -24,7 +24,6 @@ public class Set
 		}
 	}
 
-	/*
 	public void Save(string path)
 	{
 		var serializer = new XmlSerializer(typeof(Set));
@@ -42,6 +41,5 @@ public class Set
 			return serializer.Deserialize(stream) as Set;
 		}
 	}
-	*/
 }
 

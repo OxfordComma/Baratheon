@@ -23,29 +23,32 @@ public class DeckBuildingWindow : MonoBehaviour {
         deckList = GameObject.Find("DeckListContent");
         setList = GameObject.Find("SetListContent");
 
-		List<Card> setCards = GameController.GetGameController().AllCards;
+		List<Card> setCards = GameController.GetGameController ().set.cards;
+		Dictionary<string, Card> setCardsDict = new Dictionary<string, Card> ();
 
         foreach (Card card in setCards)
         {
+			setCardsDict.Add (card.name, card);
+
             GameObject setListItemObj = Instantiate(setListItemPrefab);
             SetListItem setListItem = setListItemObj.GetComponent<SetListItem>();
             setListItem.SetCard(card);
             setListItemObj.transform.SetParent(setList.transform);
         }
 
-		List<Card> playerCards = GameController.GetGameController().localPlayer.deck.cards;
+		string[] playerCards = GameController.GetLocalPlayer ().deckSyncList.ToArray ();
 
-		foreach (Card card in playerCards) 
+		foreach (string cardString in playerCards) 
 		{
+			Card card = setCardsDict [cardString];
 			GameObject deckListItemObj = Instantiate (deckListItemPrefab);
 			DeckListItem deckListItem = deckListItemObj.GetComponent<DeckListItem> ();
-            deckListItem.SetCard (card);
-
+			deckListItem.SetCard (card);
             deckListItem.transform.SetParent (deckList.transform);
 		}
 
 		GameObject.Find("CardCounter").GetComponent<Text>().text = 
-			GameController.GetGameController().localPlayer.deck.cards.Count.ToString() + "/30";
+			GameController.GetLocalPlayer().deckSyncList.Count.ToString() + "/30";
 	}
 	
 	// Update is called once per frame

@@ -6,9 +6,9 @@ using System;
 
 public class CardFunctionsFactory
 {
-    Player player;
+    NetworkPlayer player;
     GameFunctionsFactory gameFunctionsFactory = new GameFunctionsFactory();
-	public CardFunctionsFactory(Player player)
+	public CardFunctionsFactory(NetworkPlayer player)
     {
         this.player = player;
     }

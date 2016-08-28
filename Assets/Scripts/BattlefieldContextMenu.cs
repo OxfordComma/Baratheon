@@ -6,7 +6,7 @@ public delegate void OnClickFunction(Player player);
 
 public class BattlefieldContextMenu : MonoBehaviour
 {
-    public void AddContextMenuItem(string buttonName, Player player, Card card)
+    public void AddContextMenuItem(string buttonName, NetworkPlayer player, Card card)
     {
         GameObject cmItemObj = Instantiate(Resources.Load("Prefabs/ContextMenuItem") as GameObject);
         cmItemObj.transform.SetParent(this.transform);

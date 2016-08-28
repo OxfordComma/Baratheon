@@ -18,7 +18,7 @@ public class GameFunctionsFactory
         return hit.transform.gameObject;
     }
 
-    public void Draw(Player player, int numCards)
+    public void Draw(NetworkPlayer player, int numCards)
     {
         for (int i = 0; i < numCards; i++)
         {

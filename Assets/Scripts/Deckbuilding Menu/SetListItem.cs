@@ -58,11 +58,11 @@ public class SetListItem : ListItem {
         GameObject deckListItem = Instantiate(deckListItemPrefab);
         deckListItem.transform.SetParent(deckList.transform);
         deckListItem.GetComponent<DeckListItem>().SetCard(card);
-        //localPlayer.AddCardToDeck(card);
-        localPlayer.SaveToXML();
+		GameController.GetLocalPlayer().CmdAddCardToDeck(card);
+		GameController.GetLocalPlayer().SaveToXML();
 
 		GameObject.Find("CardCounter").GetComponent<Text>().text = 
-			GameController.GetGameController().localPlayer.deck.cards.Count.ToString() + "/30";
+			GameController.GetLocalPlayer().deckSyncList.Count.ToString() + "/30";
 
     }
 }

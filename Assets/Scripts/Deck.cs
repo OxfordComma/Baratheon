@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -10,17 +11,6 @@ public class Deck
 {
 	[XmlArray("cards"), XmlArrayItem("card")]
 	public List<Card> cards;
-    // Use this for initialization
-    void Start()
-    {
-		
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
 	public Deck()
 	{
@@ -74,5 +64,15 @@ public class Deck
             cards[n] = value;
         }
     }
+
+	public string[] ToStringArray()
+	{
+		string[] toReturn = new string[cards.Count];
+		for(int i = 0; i < cards.Count; i++)
+		{
+			toReturn[i] = cards[i].name;
+		}
+		return toReturn;
+	}
 }
 

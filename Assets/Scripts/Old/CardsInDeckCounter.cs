@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class CardsInDeckCounter : MonoBehaviour {
 	Text cardsInDeckText;
-	Player localPlayer;
+	NetworkPlayer localPlayer;
 
 	// Use this for initialization
 	void Start () {

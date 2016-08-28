@@ -6,7 +6,7 @@ public class ListItem : MonoBehaviour
 {
     public Card card;
     protected GameObject setList, deckList;
-	public Player localPlayer;
+	public NetworkPlayer localPlayer;
 
     // Use this for initialization
     public virtual void Start()

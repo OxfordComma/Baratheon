@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
-	[HideInInspector]
-	public Player localPlayer;
+	public NetworkPlayer localPlayer;
 	public Set set; 
+	public Dictionary<string, Card> allCards;
 
     GameObject cardInHandPrefab, contextMenuPrefab;
 	GameObject escapeMenuPrefab;
@@ -19,21 +19,21 @@ public class GameController : MonoBehaviour
 
 	GameFunctionsFactory gameFunctionsFactory = new GameFunctionsFactory();
 
-	public List<Card> AllCards
-	{
-		get { return set.cards; }
-	}
-
     // Use this for initialization
     void Start()
     {
 		DontDestroyOnLoad (this);
 
-		set = new Set(SetXML.Load (Application.streamingAssetsPath + "/Cards.xml"));
+//		Set tempSet = new Set ();
+//		tempSet.cards.Add (new Card ());
+//		tempSet.Save (Application.streamingAssetsPath + "/tempCards.xml");
+		set = Set.Load (Application.streamingAssetsPath + "/Cards.xml");
 
         contextMenuPrefab = Resources.Load("Prefabs/ContextMenu") as GameObject;
         cardInHandPrefab = Resources.Load("Prefabs/Battlefield/CardUI") as GameObject;
 		escapeMenuPrefab = Resources.Load ("Prefabs/EscapeMenu") as GameObject;
+
+
     }
 
     // Update is called once per frame
@@ -87,6 +87,11 @@ public class GameController : MonoBehaviour
 		return GameObject.FindWithTag ("GameController").GetComponent<GameController> ();
 	}
 
+	public static NetworkPlayer GetLocalPlayer()
+	{
+		return (GameObject.FindWithTag ("Player").GetComponent<NetworkPlayer> ());
+	}
+
 	void OnLevelWasLoaded(int level)
 	{
 		if (level == 3) // Battlefield
@@ -120,11 +125,8 @@ public class GameController : MonoBehaviour
 		SceneManager.LoadScene ("Battlefield");
 	}
 
-
 	public void Quit()
 	{
 		Application.Quit ();
 	}
-
-    
 }

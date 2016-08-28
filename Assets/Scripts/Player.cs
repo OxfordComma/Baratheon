@@ -19,11 +19,17 @@ public class Player
 		this.deck = new Deck();
 	}
 		
-    public Player(string name)
-    {
-        this.name = name;
-		this.deck = new Deck();
-    }
+//    public Player(string name)
+//    {
+//        this.name = name;
+//		this.deck = new Deck();
+//    }
+
+	public Player(string name, Deck deck)
+	{
+		this.name = name;
+		this.deck = deck;
+	}
 
 	public void SaveToXML()
 	{
