@@ -13,7 +13,6 @@ public class DeckBuildingWindow : MonoBehaviour {
     GameObject setListItemPrefab, deckListItemPrefab;
 	GameObject setList, deckList;
 
-
     // Use this for initialization
     void Start ()
     {
@@ -49,10 +48,5 @@ public class DeckBuildingWindow : MonoBehaviour {
 
 		GameObject.Find("CardCounter").GetComponent<Text>().text = 
 			GameController.GetLocalPlayer().deckSyncList.Count.ToString() + "/30";
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    
 	}
 }	

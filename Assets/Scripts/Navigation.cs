@@ -5,15 +5,6 @@ using System.IO;
 
 public class Navigation : MonoBehaviour {
 
-    // Use this for initialization
-    void Start () {
-    }
-	
-	// Update is called once per frame
-	void Update () {
-	    
-	}
-
 	public Navigation() { }
 
 	public static void StaticGoToMainMenu()
@@ -39,14 +30,14 @@ public class Navigation : MonoBehaviour {
 	public void GoToBattlefield()
 	{
 		SceneManager.LoadScene ("Battlefield");
-		Debug.Log (GameController.GetGameController ().localPlayer);
+//		Debug.Log (GameController.GetGameController ().localPlayer);
 
 	}
 
 	public void Logout()
 	{
-		GameController.GetGameController().localPlayer.SaveToXML();
-		GameController.GetGameController().localPlayer = null;
+		GameController.GetLocalPlayer().SaveToXML();
+//		GameController.GetLocalPlayer().gameObject = null;
 		GoToLoginScreen();
 	}
 

@@ -96,8 +96,8 @@ public class GameController : MonoBehaviour
 	{
 		if (level == 3) // Battlefield
 		{
-			localPlayer.deck.Shuffle();
-			gameFunctionsFactory.Draw(localPlayer, 7);   
+			GameController.GetLocalPlayer().deck.Shuffle();
+			gameFunctionsFactory.Draw(GameController.GetLocalPlayer(), 7);   
 		}
 	}
 
