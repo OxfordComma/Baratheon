@@ -40,9 +40,12 @@ public class GameController : MonoBehaviour
     void Update()
     {
         // Left Click
-		if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
+            if (contextMenuOpen)
+            {
 
+            }
         }
 
         // Right Click
@@ -58,11 +61,16 @@ public class GameController : MonoBehaviour
                 
                 BattlefieldContextMenu cm = cmObj.GetComponent<BattlefieldContextMenu>();
                 Debug.Log(cardUnderMouse.GetComponent<CardUI>().card.name);
-                cm.AddContextMenuItem("Cast", localPlayer, cardUnderMouse.GetComponent<CardUI>().card);
+                cm.AddContextMenuItem("Cast", GetLocalPlayer(), cardUnderMouse.GetComponent<CardUI>().card);
                 cmObj.transform.position = Input.mousePosition + 
-                    new Vector3(cmObj.GetComponentInChildren<LayoutElement>().minWidth / 2, -cmObj.GetComponentInChildren<LayoutElement>().minHeight / 2, 0);
+                    new Vector3(cmObj.GetComponentInChildren<LayoutElement>().preferredWidth / 2, -cmObj.GetComponentInChildren<LayoutElement>().preferredHeight * cm.transform.childCount / 2, 0);
                 
             }
+            else
+            {
+
+            }
+
         }
 
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -96,8 +104,8 @@ public class GameController : MonoBehaviour
 	{
 		if (level == 3) // Battlefield
 		{
-			GameController.GetLocalPlayer().deck.Shuffle();
-			gameFunctionsFactory.Draw(GameController.GetLocalPlayer(), 7);   
+            GameController.GetLocalPlayer().StartBattle();
+			//gameFunctionsFactory.Draw(GameController.GetLocalPlayer(), 3);   
 		}
 	}
 

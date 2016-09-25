@@ -17,13 +17,6 @@ public class Deck
 		this.cards = new List<Card>();
 	}
 
-	public Deck(DeckXML deckxml)
-	{
-		foreach (CardXML cardxml in deckxml.cards) {
-			cards.Add (new Card (cardxml));
-		}
-	}
-
 	public void Save(string path)
 	{
 		var serializer = new XmlSerializer(typeof(Deck));

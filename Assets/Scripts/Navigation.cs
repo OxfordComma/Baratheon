@@ -36,7 +36,7 @@ public class Navigation : MonoBehaviour {
 
 	public void Logout()
 	{
-		GameController.GetLocalPlayer().SaveToXML();
+		GameController.GetLocalPlayer().CmdSaveToXML();
 //		GameController.GetLocalPlayer().gameObject = null;
 		GoToLoginScreen();
 	}

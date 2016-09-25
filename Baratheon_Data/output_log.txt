@@ -1,15 +1,17 @@
-Initialize engine version: 5.3.4f1 (fdbb5133b820)
+Initialize engine version: 5.3.5f1 (960ebf59018a)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
     Renderer: AMD Radeon (TM) R9 200 Series (ID=0x6811)
     Vendor:   ATI
-    VRAM:     2030 MB
+    VRAM:     2029 MB
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.dll (this message is harmless)
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.West.dll (this message is harmless)
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.UI.dll (this message is harmless)
@@ -20,33 +22,37 @@ Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N
 Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.dll into Unity Child Domain
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.West.dll (this message is harmless)
 Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.West.dll into Unity Child Domain
-- Completed reload, in  0.163 seconds
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Photon3Unity3D.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
+- Completed reload, in  0.101 seconds
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.dll (this message is harmless)
-desktop: 1680x1050 60Hz; virtual: 5200x1524 at -1600,-474
+desktop: 1920x1080 59Hz; virtual: 4960x1080 at 0,-23
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.532185 ms
+UnloadTime: 0.868641 ms
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Xml.dll (this message is harmless)
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Configuration.dll (this message is harmless)
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.837053 ms
+Connected. Adding player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 250.
-Total: 0.416034 ms (FindLiveObjects: 0.017846 ms CreateObjectMapping: 0.008191 ms MarkObjects: 0.383266 ms  DeleteObjects: 0.006143 ms)
+Starting local player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.457006 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 261.
+Total: 0.443536 ms (FindLiveObjects: 0.019602 ms CreateObjectMapping: 0.008191 ms MarkObjects: 0.408428 ms  DeleteObjects: 0.006729 ms)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.374782 ms
+UnloadTime: 0.313342 ms
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 343.
-Total: 0.485081 ms (FindLiveObjects: 0.019017 ms CreateObjectMapping: 0.013750 ms MarkObjects: 0.448802 ms  DeleteObjects: 0.002925 ms)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at GameFunctionsHandler.Draw (.Player player) [0x00000] in <filename unknown>:0 
-  at GameplayHandler.Start () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 345.
+Total: 0.634585 ms (FindLiveObjects: 0.019602 ms CreateObjectMapping: 0.015506 ms MarkObjects: 0.595088 ms  DeleteObjects: 0.003803 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 12e8 -> priority: 1 
+  Thread -> id: 8ed8 -> priority: 1 

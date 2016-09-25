@@ -15,7 +15,7 @@ public class CardFunctionsFactory
 
     public void AncestralRecall()
     {
-        gameFunctionsFactory.Draw(player, 3);
+        //gameFunctionsFactory.Draw(player, 3);
     } 
 
 }

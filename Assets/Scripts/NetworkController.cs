@@ -46,4 +46,5 @@ public class NetworkController : MonoBehaviour {
 	{
 		return GameObject.FindWithTag ("NetworkController").GetComponent<NetworkController> ();
 	}
+
 }

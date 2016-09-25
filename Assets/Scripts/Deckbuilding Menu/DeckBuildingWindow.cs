@@ -8,8 +8,8 @@ using UnityEngine.EventSystems;
 
 public class DeckBuildingWindow : MonoBehaviour {
 	public Text cardsInDeckText;
-	CardHandler cardHandler;
-	PlayerHandler playerHandler;
+	//CardHandler cardHandler;
+	//PlayerHandler playerHandler;
     GameObject setListItemPrefab, deckListItemPrefab;
 	GameObject setList, deckList;
 

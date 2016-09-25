@@ -12,14 +12,14 @@ public class NetworkPlayer : NetworkBehaviour {
 	public string playerName;
 
 	public SyncListString deckSyncList;
+    public SyncListString cardsInHandSyncList;
 
 	public Player player;
-//	public Deck deck;
 
 	public void Awake()
 	{
 		deckSyncList = new SyncListString ();
-
+        cardsInHandSyncList = new SyncListString();
 	}
 
 	public void Start()
@@ -34,8 +34,9 @@ public class NetworkPlayer : NetworkBehaviour {
  		string username = GameObject.Find("LoginName").GetComponent<Text>().text;
 
 		CmdLoadPlayer (username);
+        CmdSaveToXML();
 
-		Navigation.StaticGoToMainMenu ();
+        Navigation.StaticGoToMainMenu ();
 
 	}
 
@@ -70,28 +71,57 @@ public class NetworkPlayer : NetworkBehaviour {
 		this.transform.name = player.name + " (Network)";
 	}
 
+
+    public void StartBattle()
+    {
+        Draw(3);
+    }
+
 	[Command]
 	public void CmdAddCardToDeck(Card card)
 	{
 		deck.AddCard(card);
-		
-		deckSyncList.Add (card.name);
 	}
 
 	[Command]
 	public void CmdRemoveCardFromDeck(Card card)
 	{
 		deck.RemoveCard (card);
-		
-		deckSyncList.Remove (card.name);
 	}
+
+    public void CmdShuffleDeck()
+    {
+        int n = deckSyncList.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(1, n + 1);
+            string value = deckSyncList[k];
+            deckSyncList[k] = deckSyncList[n];
+            deckSyncList[n] = value;
+        }
+    }
+
+    public void Draw(int numCards)
+    {
+        for (int i = 0; i < numCards; i++)
+        {
+            GameObject cardInHandObject = GameObject.Instantiate(Resources.Load("Prefabs/Battlefield/CardInHand")) as GameObject;
+            cardInHandObject.GetComponent<CardInHand>().SetCard(GameController.GetGameController().set.GetCard(deckSyncList[0]));
+            cardInHandObject.name = deckSyncList[0];
+            cardInHandObject.transform.SetParent(GameObject.Find("Hand").transform, false);
+            cardsInHandSyncList.Add(deckSyncList[0]);
+            deckSyncList.Remove(deckSyncList[0]);
+        }
+    }
 
 	public bool CanAddCardToDeck(Card card)
 	{
 		return true;
 	}
 
-	public void SaveToXML()
+    [Command]
+	public void CmdSaveToXML()
 	{
 		player.SaveToXML ();
 	}

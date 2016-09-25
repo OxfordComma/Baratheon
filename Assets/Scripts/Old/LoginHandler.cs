@@ -10,7 +10,6 @@ public class LoginHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        playerHandler = GameObject.Find("Player Handler").GetComponent<PlayerHandler>();
 	}
 
     // Update is called once per frame
@@ -47,17 +46,17 @@ public class LoginHandler : MonoBehaviour {
 		Navigation.StaticGoToMainMenu ();
 	}
 
-	public void CreateLogin(string username)
-	{
-		Directory.CreateDirectory (Path.Combine (Application.persistentDataPath, "users/" + username));
-		Player newPlayer = new Player(username, new Deck());
-		newPlayer.SaveToXML ();
+    public void CreateLogin(string username)
+    {
+        Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, "users/" + username));
+        Player newPlayer = new Player(username, new Deck());
+        //newPlayer.CmdSaveToXML()();
         playerHandler.activePlayer = newPlayer;
     }
 
-	public void Logout()
+    public void Logout()
 	{
-		GameController.GetGameController().localPlayer.SaveToXML();
+		GameController.GetGameController().localPlayer.CmdSaveToXML();
 		GameController.GetGameController().localPlayer = null;
 		GameController.GoToLoginScreen();
 	}

@@ -20,7 +20,7 @@ public class BaratheonNetworkServer : MonoBehaviour
 
 	private void OnConnect(NetworkMessage netMsg)
 	{
-		Debug.Log("player connected!");
+		Debug.Log("Player connected!");
 	}
 
 	private void OnAddPlayer(NetworkMessage netMsg)

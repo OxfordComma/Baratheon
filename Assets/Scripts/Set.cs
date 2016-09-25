@@ -2,27 +2,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 
 [XmlRoot("set")]
 public class Set
 {
-	[XmlElement("card")]
-	public List<Card> cards;
-	public Set()
-	{
-		this.cards = new List<Card> ();
-	}
+    [XmlElement("card")]
+    public List<Card> cards;
+    public Set()
+    {
+        this.cards = new List<Card>();
+    }
 
-	public Set(SetXML setxml)
-	{
-		this.cards = new List<Card> ();
-		for (int i = 0; i < setxml.cards.Count; i++) {
-			Card card = new Card (setxml.cards [i]);
-			cards.Add (card);
-		}
-	}
+    public Card GetCard(string cardName)
+    {
+        return cards.Where(obj => obj.name == cardName).SingleOrDefault();
+    }
+
+	//public Set(SetXML setxml)
+	//{
+	//	this.cards = new List<Card> ();
+	//	for (int i = 0; i < setxml.cards.Count; i++) {
+	//		Card card = new Card (setxml.cards [i]);
+	//		cards.Add (card);
+	//	}
+	//}
 
 	public void Save(string path)
 	{

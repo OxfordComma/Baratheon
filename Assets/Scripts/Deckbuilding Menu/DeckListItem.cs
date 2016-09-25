@@ -20,11 +20,11 @@ public class DeckListItem : ListItem {
     public override void OnClick()
     {
 		GameController.GetLocalPlayer().CmdRemoveCardFromDeck(card);
-		GameController.GetLocalPlayer().SaveToXML();
+		GameController.GetLocalPlayer().CmdSaveToXML();
 		GameObject.Find("CardCounter").GetComponent<Text>().text = 
 			GameController.GetLocalPlayer().deckSyncList.Count.ToString() + "/30";
 		
         Destroy(this.gameObject);
-		GameController.GetLocalPlayer().SaveToXML();
+		GameController.GetLocalPlayer().CmdSaveToXML();
     }
 }
