@@ -20,7 +20,6 @@ public class NetworkController : MonoBehaviour {
 		client = new NetworkClient();
 		//client.Connect("localhost", 7777);
 		client.RegisterHandler(MsgType.Connect, OnClientConnected);
-
 	}
 
 	private void OnDespawnEntity(GameObject spawned)

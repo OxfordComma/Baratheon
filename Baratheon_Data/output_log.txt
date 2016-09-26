@@ -1,4 +1,4 @@
-Initialize engine version: 5.3.5f1 (960ebf59018a)
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
@@ -24,35 +24,150 @@ Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N
 Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.West.dll into Unity Child Domain
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Photon3Unity3D.dll (this message is harmless)
 Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
-- Completed reload, in  0.101 seconds
+- Completed reload, in  0.065 seconds
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on GameController
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
+
 desktop: 1920x1080 59Hz; virtual: 4960x1080 at 0,-23
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.868641 ms
+UnloadTime: 1.341143 ms
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Xml.dll (this message is harmless)
 Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Configuration.dll (this message is harmless)
 Connected. Adding player
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
 Starting local player
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.457006 ms
+UnloadTime: 3.180240 ms
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 261.
-Total: 0.443536 ms (FindLiveObjects: 0.019602 ms CreateObjectMapping: 0.008191 ms MarkObjects: 0.408428 ms  DeleteObjects: 0.006729 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 289.
+Total: 0.531015 ms (FindLiveObjects: 0.025453 ms CreateObjectMapping: 0.014628 ms MarkObjects: 0.480693 ms  DeleteObjects: 0.009654 ms)
 
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.313342 ms
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon (TM) R9 200 Series (ID=0x6811)
+    Vendor:   ATI
+    VRAM:     2029 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.dll (this message is harmless)
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.West.dll (this message is harmless)
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.West.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.West.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Photon3Unity3D.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
+- Completed reload, in  0.067 seconds
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on GameController
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 345.
-Total: 0.634585 ms (FindLiveObjects: 0.019602 ms CreateObjectMapping: 0.015506 ms MarkObjects: 0.595088 ms  DeleteObjects: 0.003803 ms)
+desktop: 1920x1080 59Hz; virtual: 4960x1080 at 0,-23
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.740203 ms
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Xml.dll (this message is harmless)
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Configuration.dll (this message is harmless)
+Connected. Adding player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Starting local player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.125237 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 297.
+Total: 0.625223 ms (FindLiveObjects: 0.020772 ms CreateObjectMapping: 0.017554 ms MarkObjects: 0.576948 ms  DeleteObjects: 0.009362 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 8ed8 -> priority: 1 
+  Thread -> id: 101d0 -> priority: 1 
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon (TM) R9 200 Series (ID=0x6811)
+    Vendor:   ATI
+    VRAM:     2029 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.dll (this message is harmless)
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.West.dll (this message is harmless)
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.West.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\I18N.West.dll into Unity Child Domain
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Photon3Unity3D.dll (this message is harmless)
+Loading C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
+- Completed reload, in  0.065 seconds
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on GameController
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 375)
+
+desktop: 1920x1080 59Hz; virtual: 4960x1080 at 0,-23
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.742836 ms
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Xml.dll (this message is harmless)
+Platform assembly: C:\Users\Nick\Documents\Baratheon\Baratheon_Data\Managed\System.Configuration.dll (this message is harmless)
+Connected. Adding player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Connected. Adding player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Connected. Adding player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: eb44 -> priority: 1 
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777}
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 102c8 -> priority: 1 
