@@ -67,5 +67,14 @@ public class Deck
 		}
 		return toReturn;
 	}
+
+	public SyncListString ToSyncListString()
+	{
+		SyncListString toReturn = new SyncListString ();
+		for (int i = 0; i < cards.Count; i++) {
+			toReturn [i] = cards [i].name;
+		}
+		return toReturn;
+	}
 }
 

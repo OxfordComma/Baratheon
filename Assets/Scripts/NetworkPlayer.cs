@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 
+[XmlRoot("player")]
 public class NetworkPlayer : NetworkBehaviour {
 
 	[SyncVar]
@@ -16,14 +17,35 @@ public class NetworkPlayer : NetworkBehaviour {
 
 	public Player player;
 
-	public void Awake()
+	public NetworkPlayer()
 	{
-		deckSyncList = new SyncListString ();
-        cardsInHandSyncList = new SyncListString();
+		deckSyncList = new SyncListString();
+		cardsInHandSyncList = new SyncListString();
+	}
+
+	public NetworkPlayer(string username, Deck deck)
+	{
+		this.name = username;
+		deckSyncList = deck.ToSyncListString ();
+		cardsInHandSyncList = new SyncListString();
+	}
+
+	public NetworkPlayer (Player player)
+	{
+
+	}
+
+	[ClientRpc]
+	public void RpcSetName()
+	{
+		this.playerName = NetworkController.GetNetworkController ().playerName;
+		this.name = this.playerName;
 	}
 
 	public void Start()
 	{
+		this.name = "playerDude";
+
 		DontDestroyOnLoad (this);
 	}
 
@@ -31,12 +53,6 @@ public class NetworkPlayer : NetworkBehaviour {
 	{
 		DontDestroyOnLoad (this);
 		Debug.Log ("Starting local player");
- 		string username = GameObject.Find("LoginName").GetComponent<Text>().text;
-
-		CmdLoadPlayer (username);
-        CmdSaveToXML();
-
-        Navigation.StaticGoToMainMenu ();
 
 	}
 
@@ -45,32 +61,6 @@ public class NetworkPlayer : NetworkBehaviour {
 		get { return player.deck; }
 		set { player.deck = value; }
 	}
-
-	[Command]
-	public void CmdLoadPlayer(string username)
-	{
-		if (!Directory.Exists (Path.Combine (Application.persistentDataPath, "users")))
-			Directory.CreateDirectory (Path.Combine (Application.persistentDataPath, "users"));
-
-		string userPath = Path.Combine (Application.persistentDataPath, "users").ToString ();
-		string[] users = Directory.GetDirectories (userPath).Select (path => Path.GetFileName (path)).ToArray ();
-
-		if (!users.Contains (username)) {
-			Directory.CreateDirectory (Path.Combine (Application.persistentDataPath, "users/" + username));
-			this.player = new Player (username, new Deck());
-			player.SaveToXML ();
-		}
-		else {
-			this.player = Player.Load (Path.Combine (Application.persistentDataPath, "users/" + username + "/player.xml"));
-		}
-
-		this.playerName = player.name;
-		foreach (Card card in player.deck.cards)
-			deckSyncList.Add (card.name);
-		
-		this.transform.name = player.name + " (Network)";
-	}
-
 
     public void StartBattle()
     {
@@ -120,9 +110,26 @@ public class NetworkPlayer : NetworkBehaviour {
 		return true;
 	}
 
-    [Command]
-	public void CmdSaveToXML()
+	public void SaveToXML()
 	{
-		player.SaveToXML ();
+		Save (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
+	}
+
+	public void Save(string path)
+	{
+		var serializer = new XmlSerializer(typeof(Player));
+		using (var stream = new FileStream(path, FileMode.Create))
+		{
+			serializer.Serialize(stream, this);
+		}
+	}
+
+	public static Player Load(string path)
+	{
+		var serializer = new XmlSerializer(typeof(Player));
+		using (var stream = new FileStream(path, FileMode.Open))
+		{
+			return serializer.Deserialize(stream) as Player;
+		}
 	}
 }

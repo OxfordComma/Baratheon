@@ -23,7 +23,7 @@ public class Player
 //    {
 //        this.name = name;
 //		this.deck = new Deck();
-//    }
+//    }gr
 
 	public Player(string name, Deck deck)
 	{
@@ -31,8 +31,9 @@ public class Player
 		this.deck = deck;
 	}
 
-	public void SaveToXML()
+	public void SaveToXML(NetworkPlayer networkPlayer)
 	{
+		
 		Save (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
 	}
 

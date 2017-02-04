@@ -4,27 +4,22 @@ using System.Collections;
 
 public class NetworkController : MonoBehaviour {
 
-	public NetworkClient client;
-	//private NetworkIdentity _networkStateEntityProtoType;
+	public static NetworkClient client;
+	public GameObject networkPlayerPrefab;
+	public static GameObject networkController;
+	public string playerName;
 	void Start()
 	{
 		//on client, this isn't required but is nice for testing.
 		Application.runInBackground = true;
-
-		//var globals = FindObjectOfType<GlobalAssets>();
-
-		//_networkStateEntityProtoType = globals.NetworkEntityStatePrototype.GetComponent<NetworkIdentity>();
-
-		//ClientScene.RegisterSpawnHandler(_networkStateEntityProtoType.assetId, OnSpawnEntity, OnDespawnEntity);
+		DontDestroyOnLoad (this);
 
 		client = new NetworkClient();
 		//client.Connect("localhost", 7777);
 		client.RegisterHandler(MsgType.Connect, OnClientConnected);
-	}
 
-	private void OnDespawnEntity(GameObject spawned)
-	{
-		Destroy(spawned);
+		ClientScene.RegisterPrefab (networkPlayerPrefab);
+		networkController = this.gameObject;
 	}
 
 	private void OnClientConnected(NetworkMessage netMsg)
@@ -32,18 +27,11 @@ public class NetworkController : MonoBehaviour {
 		ClientScene.Ready(netMsg.conn);
 		ClientScene.AddPlayer(0);
 	}
-	/*
-	private GameObject OnSpawnEntity(Vector3 position, NetworkHash128 assetId)
-	{
-		var networkEntity = Instantiate<NetworkIdentity>(_networkStateEntityProtoType);
 
-		networkEntity.transform.SetParent(this.transform);
-		return networkEntity.gameObject;
-	}
-	*/
 	public static NetworkController GetNetworkController()
 	{
-		return GameObject.FindWithTag ("NetworkController").GetComponent<NetworkController> ();
+		return GameObject.Find ("NetworkController").GetComponent<NetworkController> ();
 	}
+
 
 }

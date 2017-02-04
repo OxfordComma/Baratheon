@@ -56,7 +56,7 @@ public class LoginHandler : MonoBehaviour {
 
     public void Logout()
 	{
-		GameController.GetGameController().localPlayer.CmdSaveToXML();
+		GameController.GetGameController().localPlayer.SaveToXML();
 		GameController.GetGameController().localPlayer = null;
 		GameController.GoToLoginScreen();
 	}
