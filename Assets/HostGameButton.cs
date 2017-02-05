@@ -16,7 +16,7 @@ public class HostGameButton : MonoBehaviour {
 
 	public void HostGame()
 	{
-		NetworkServer.Listen (7777);
+		//NetworkServer.Listen (7777);
 
 	}
 }

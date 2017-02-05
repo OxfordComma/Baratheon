@@ -20,7 +20,7 @@ public class BaratheonNetworkServer : MonoBehaviour
 		Application.runInBackground = true;
 
 
-		NetworkServer.Listen(7777);
+		WriteToConsole(NetworkServer.Listen(7777).ToString());
 		/*
 		NetworkServer.RegisterHandler(MsgType.Connect, OnConnect);
 		NetworkServer.RegisterHandler(MsgType.AddPlayer, OnAddPlayer);
