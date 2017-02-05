@@ -21,6 +21,9 @@ public class BaratheonNetworkServer : MonoBehaviour
 		DontDestroyOnLoad (this);
 		Application.runInBackground = true;
 
+
+		NetworkServer.Listen(7777);
+
 		NetworkServer.RegisterHandler(MsgType.Connect, OnConnect);
 		NetworkServer.RegisterHandler(MsgType.AddPlayer, OnAddPlayer);
 		NetworkServer.RegisterHandler(MsgType.RemovePlayer, OnRemovePlayer);
@@ -59,16 +62,11 @@ public class BaratheonNetworkServer : MonoBehaviour
 
 	private void OnAddPlayer(NetworkMessage netMsg)
 	{
-//		var playerName = netMsg.ReadMessage<StringMessage> ().value;
-//		WriteToConsole (playerName);
 		GameObject player = Instantiate<GameObject>(playerPrefab);
-//		player.name = playerName;
 		NetworkServer.AddPlayerForConnection(netMsg.conn, player, 0);
 		player.GetComponent<NetworkPlayer> ().RpcSetName ();
 
 		WriteToConsole (player.GetComponent<NetworkPlayer>().playerName);
-		//NetworkServer.Spawn (playerPrefab);
-		//connectedPlayers.Add(player);
 
 	}
 
@@ -77,7 +75,6 @@ public class BaratheonNetworkServer : MonoBehaviour
         GameObject player = netMsg.conn.playerControllers[0].gameObject;
         NetworkServer.UnSpawn(player);
         Destroy(player);
-        //connectedPlayers.Find(playerObj => playerObj = player);
     }
 
 	private void OnDisconnect(NetworkMessage netMsg)
@@ -86,34 +83,27 @@ public class BaratheonNetworkServer : MonoBehaviour
 		GameObject player = netMsg.conn.playerControllers[0].gameObject;
 		NetworkServer.UnSpawn(player);
 		Destroy(player);
-        //connectedPlayers.Find(playerObj => playerObj = player);
 	}
 
-	public NetworkPlayer LoadPlayer(string username)
+	public NetworkPlayer LoadPlayer(string playerName)
 	{
-		NetworkPlayer networkPlayer;
+		NetworkPlayer networkPlayer = new NetworkPlayer();
 		if (!Directory.Exists (Path.Combine (Application.persistentDataPath, "users")))
 			Directory.CreateDirectory (Path.Combine (Application.persistentDataPath, "users"));
 
 		string userPath = Path.Combine (Application.persistentDataPath, "users").ToString ();
 		string[] users = Directory.GetDirectories (userPath).Select (path => Path.GetFileName (path)).ToArray ();
 
-		if (!users.Contains (username)) {
-			Directory.CreateDirectory (Path.Combine (Application.persistentDataPath, "users/" + username));
-			networkPlayer = new NetworkPlayer (username, new Deck());
+		if (!users.Contains (playerName)) {
+			Directory.CreateDirectory (Path.Combine (Application.persistentDataPath, "users/" + playerName));
+			networkPlayer.playerName = playerName;
+			networkPlayer.deck = new Deck ();
 			networkPlayer.SaveToXML ();
 		}
 		else {
-			Player player = Player.Load (Path.Combine (Application.persistentDataPath, "users/" + username + "/player.xml"));
-			networkPlayer = new NetworkPlayer (player);
+			networkPlayer = NetworkPlayer.Load (Path.Combine (Application.persistentDataPath, "users/" + networkPlayer.playerName + "/player.xml"));
 		}
 
 		return networkPlayer;
-
-//		this.playerName = player.name;
-//		foreach (Card card in player.deck.cards)
-//			deckSyncList.Add (card.name);
-//
-//		this.transform.name = player.name + " (Network)";
 	}
 }

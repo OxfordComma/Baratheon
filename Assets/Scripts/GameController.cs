@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
 	{
 		if (level == 3) // Battlefield
 		{
-            GameController.GetLocalPlayer().StartBattle();
+//            GameController.GetLocalPlayer().StartBattle();
 			//gameFunctionsFactory.Draw(GameController.GetLocalPlayer(), 3);   
 		}
 	}

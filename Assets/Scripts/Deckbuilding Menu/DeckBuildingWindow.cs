@@ -35,7 +35,7 @@ public class DeckBuildingWindow : MonoBehaviour {
             setListItemObj.transform.SetParent(setList.transform);
         }
 
-		string[] playerCards = GameController.GetLocalPlayer ().deckSyncList.ToArray ();
+		string[] playerCards = GameController.GetLocalPlayer ().deck.ToStringArray ();
 
 		foreach (string cardString in playerCards) 
 		{
@@ -47,6 +47,6 @@ public class DeckBuildingWindow : MonoBehaviour {
 		}
 
 		GameObject.Find("CardCounter").GetComponent<Text>().text = 
-			GameController.GetLocalPlayer().deckSyncList.Count.ToString() + "/30";
+			GameController.GetLocalPlayer().deck.cards.Count.ToString() + "/30";
 	}
 }	

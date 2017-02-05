@@ -8,32 +8,13 @@ using System.Xml.Serialization;
 
 [XmlRoot("player")]
 public class NetworkPlayer : NetworkBehaviour {
-
 	[SyncVar]
 	public string playerName;
+	public Deck deck;
 
-	public SyncListString deckSyncList;
-    public SyncListString cardsInHandSyncList;
 
-	public Player player;
 
-	public NetworkPlayer()
-	{
-		deckSyncList = new SyncListString();
-		cardsInHandSyncList = new SyncListString();
-	}
-
-	public NetworkPlayer(string username, Deck deck)
-	{
-		this.name = username;
-		deckSyncList = deck.ToSyncListString ();
-		cardsInHandSyncList = new SyncListString();
-	}
-
-	public NetworkPlayer (Player player)
-	{
-
-	}
+	public NetworkPlayer() { }
 
 	[ClientRpc]
 	public void RpcSetName()
@@ -48,11 +29,10 @@ public class NetworkPlayer : NetworkBehaviour {
         this.playerName = name;
     }
 
-
     public void Start()
 	{
-		this.name = "playerDude";
 		DontDestroyOnLoad (this);
+		this.name = "playerDude";
 	}
 
 	public override void OnStartLocalPlayer()
@@ -61,16 +41,10 @@ public class NetworkPlayer : NetworkBehaviour {
 		Debug.Log ("Starting local player");
 	}
 
-	public Deck deck
-	{
-		get { return player.deck; }
-		set { player.deck = value; }
-	}
-
-    public void StartBattle()
-    {
-        Draw(3);
-    }
+//    public void StartBattle()
+//    {
+//        Draw(3);
+//    }
 
 	[Command]
 	public void CmdAddCardToDeck(Card card)
@@ -84,31 +58,31 @@ public class NetworkPlayer : NetworkBehaviour {
 		deck.RemoveCard (card);
 	}
 
-    public void CmdShuffleDeck()
-    {
-        int n = deckSyncList.Count;
-        while (n > 1)
-        {
-            n--;
-            int k = Random.Range(1, n + 1);
-            string value = deckSyncList[k];
-            deckSyncList[k] = deckSyncList[n];
-            deckSyncList[n] = value;
-        }
-    }
-
-    public void Draw(int numCards)
-    {
-        for (int i = 0; i < numCards; i++)
-        {
-            GameObject cardInHandObject = GameObject.Instantiate(Resources.Load("Prefabs/Battlefield/CardInHand")) as GameObject;
-            cardInHandObject.GetComponent<CardInHand>().SetCard(GameController.GetGameController().set.GetCard(deckSyncList[0]));
-            cardInHandObject.name = deckSyncList[0];
-            cardInHandObject.transform.SetParent(GameObject.Find("Hand").transform, false);
-            cardsInHandSyncList.Add(deckSyncList[0]);
-            deckSyncList.Remove(deckSyncList[0]);
-        }
-    }
+//    public void CmdShuffleDeck()
+//    {
+//        int n = deck.Count;
+//        while (n > 1)
+//        {
+//            n--;
+//            int k = Random.Range(1, n + 1);
+//            string value = deck[k];
+//            deck[k] = deck[n];
+//            deck[n] = value;
+//        }
+//    }
+//
+//    public void Draw(int numCards)
+//    {
+//        for (int i = 0; i < numCards; i++)
+//        {
+//            GameObject cardInHandObject = GameObject.Instantiate(Resources.Load("Prefabs/Battlefield/CardInHand")) as GameObject;
+//            cardInHandObject.GetComponent<CardInHand>().SetCard(GameController.GetGameController().set.GetCard(deck[0]));
+//            cardInHandObject.name = deck[0];
+//            cardInHandObject.transform.SetParent(GameObject.Find("Hand").transform, false);
+//            cardsInHandSyncList.Add(deck[0]);
+//            deck.Remove(deck[0]);
+//        }
+//    }
 
 	public bool CanAddCardToDeck(Card card)
 	{
@@ -122,19 +96,19 @@ public class NetworkPlayer : NetworkBehaviour {
 
 	public void Save(string path)
 	{
-		var serializer = new XmlSerializer(typeof(Player));
+		var serializer = new XmlSerializer(typeof(NetworkPlayer));
 		using (var stream = new FileStream(path, FileMode.Create))
 		{
 			serializer.Serialize(stream, this);
 		}
 	}
 
-	public static Player Load(string path)
+	public static NetworkPlayer Load(string path)
 	{
-		var serializer = new XmlSerializer(typeof(Player));
+		var serializer = new XmlSerializer(typeof(NetworkPlayer));
 		using (var stream = new FileStream(path, FileMode.Open))
 		{
-			return serializer.Deserialize(stream) as Player;
+			return serializer.Deserialize(stream) as NetworkPlayer;
 		}
 	}
 }
