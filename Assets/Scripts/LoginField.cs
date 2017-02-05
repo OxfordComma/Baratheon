@@ -14,23 +14,8 @@ public class LoginField : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Return)) {
 			NetworkController.GetNetworkController ().playerName = infield.text;
-			Connect ();
-			SceneManager.LoadScene ("Main Menu");
-//			NetworkController.GetNetworkController ().client.RegisterHandler (MsgType.Connect, OnConnect);
-//			NetworkController.GetNetworkController ().client.Connect ("127.0.0.1", 7777);
+            NetworkController.GetNetworkController().client.Connect("192.168.0.103", 7777);
+            SceneManager.LoadScene ("Main Menu");
 		}
-	}
-
-//	public void OnConnect (NetworkMessage netMsg)
-//	{
-//		ClientScene.RegisterPrefab (Resources.Load ("Prefabs/NetworkPlayer") as GameObject);
-//		StringMessage nameStringMessage = new StringMessage (GameObject.Find ("LoginName").GetComponent<Text> ().text);
-//		ClientScene.AddPlayer (netMsg.conn, 0, nameStringMessage);
-//		Debug.Log ("Connected. Adding player");
-//	}
-
-	public void Connect()
-	{
-		NetworkController.client.Connect ("127.0.0.1", 7777);
 	}
 }

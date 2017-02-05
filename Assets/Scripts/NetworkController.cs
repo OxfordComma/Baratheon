@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.Networking.NetworkSystem;
 using System.Collections;
 
 public class NetworkController : MonoBehaviour {
 
-	public static NetworkClient client;
+    public NetworkPlayer networkPlayer;
+	public NetworkClient client;
 	public GameObject networkPlayerPrefab;
-	public static GameObject networkController;
+	//public static GameObject networkController;
 	public string playerName;
 	void Start()
 	{
@@ -15,20 +17,17 @@ public class NetworkController : MonoBehaviour {
 		DontDestroyOnLoad (this);
 
 		client = new NetworkClient();
-		//client.Connect("localhost", 7777);
 		client.RegisterHandler(MsgType.Connect, OnClientConnected);
-
 		ClientScene.RegisterPrefab (networkPlayerPrefab);
-		networkController = this.gameObject;
 	}
 
 	private void OnClientConnected(NetworkMessage netMsg)
 	{
 		ClientScene.Ready(netMsg.conn);
-		ClientScene.AddPlayer(0);
-	}
+        ClientScene.AddPlayer(0);
+    }
 
-	public static NetworkController GetNetworkController()
+    public static NetworkController GetNetworkController()
 	{
 		return GameObject.Find ("NetworkController").GetComponent<NetworkController> ();
 	}

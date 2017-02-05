@@ -38,14 +38,20 @@ public class NetworkPlayer : NetworkBehaviour {
 	[ClientRpc]
 	public void RpcSetName()
 	{
-		this.playerName = NetworkController.GetNetworkController ().playerName;
-		this.name = this.playerName;
+        CmdSetName(NetworkController.GetNetworkController().playerName);
 	}
 
-	public void Start()
+    [Command]
+    public void CmdSetName(string name)
+    {
+        this.name = name;
+        this.playerName = name;
+    }
+
+
+    public void Start()
 	{
 		this.name = "playerDude";
-
 		DontDestroyOnLoad (this);
 	}
 
@@ -53,7 +59,6 @@ public class NetworkPlayer : NetworkBehaviour {
 	{
 		DontDestroyOnLoad (this);
 		Debug.Log ("Starting local player");
-
 	}
 
 	public Deck deck

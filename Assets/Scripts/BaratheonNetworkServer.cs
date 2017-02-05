@@ -21,9 +21,6 @@ public class BaratheonNetworkServer : MonoBehaviour
 		DontDestroyOnLoad (this);
 		Application.runInBackground = true;
 
-
-		NetworkServer.Listen(7777);
-
 		NetworkServer.RegisterHandler(MsgType.Connect, OnConnect);
 		NetworkServer.RegisterHandler(MsgType.AddPlayer, OnAddPlayer);
 		NetworkServer.RegisterHandler(MsgType.RemovePlayer, OnRemovePlayer);
