@@ -16,30 +16,29 @@ public class BaratheonNetworkServer : MonoBehaviour
 
 	void Start()
 	{
+		const short PlayerNameMessage = 1001;
+
 		DontDestroyOnLoad (this);
 		Application.runInBackground = true;
 
 
 		NetworkServer.Listen(7777);
-		/*
+
 		NetworkServer.RegisterHandler(MsgType.Connect, OnConnect);
 		NetworkServer.RegisterHandler(MsgType.AddPlayer, OnAddPlayer);
 		NetworkServer.RegisterHandler(MsgType.RemovePlayer, OnRemovePlayer);
 		NetworkServer.RegisterHandler(MsgType.Disconnect, OnDisconnect);
+//		Player name
+		NetworkServer.RegisterHandler(PlayerNameMessage, OnSendPlayerName);
 		ClientScene.RegisterPrefab (playerPrefab);
 
 
 		WriteToConsole ("Server started.");
-		*/
+
 	}
 
 	void WriteToConsole(string text)
 	{
-		/*
-		if (consoleWindowText.text == "") {
-			consoleWindowText.text = text;
-			return;
-		}*/
 		consoleWindowText.text += text + "\n";
 	}
 
@@ -48,12 +47,27 @@ public class BaratheonNetworkServer : MonoBehaviour
 		WriteToConsole("Player connected!");
 	}
 
+	private void OnServerAddPlayer(NetworkMessage netMsg, short playerControllerId)
+	{
+		WriteToConsole ("OnServerAddPlayer");
+	}
+
+//	Add player once character name is sent
+	private void OnSendPlayerName(NetworkMessage netMsg)
+	{
+		var playerName = netMsg.ReadMessage<StringMessage> ().value;
+		WriteToConsole (playerName);
+
+	}
+
 	private void OnAddPlayer(NetworkMessage netMsg)
 	{
-		
+//		var playerName = netMsg.ReadMessage<StringMessage> ().value;
+//		WriteToConsole (playerName);
 		GameObject player = Instantiate<GameObject>(playerPrefab);
+//		player.name = playerName;
 		NetworkServer.AddPlayerForConnection(netMsg.conn, player, 0);
-		//player.GetComponent<NetworkPlayer> ().RpcSetName ();
+		player.GetComponent<NetworkPlayer> ().RpcSetName ();
 
 		WriteToConsole (player.GetComponent<NetworkPlayer>().playerName);
 		//NetworkServer.Spawn (playerPrefab);
