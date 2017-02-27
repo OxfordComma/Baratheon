@@ -25,21 +25,21 @@ public class Card {
 		this.name = "defaultName";
 	}
 
-	//public Card(CardXML cardxml)
-	//{
-	//	this.name = cardxml.Name;
-	//	this.type = cardxml.Type;
-	//	this.subtype = cardxml.Subtype;
-	//	this.element = cardxml.Element;
-	//	this.cost = cardxml.Cost;
-	//	this.strength = cardxml.Strength;
-	//	this.armor = cardxml.Armor;
-	//	this.agility = cardxml.Agility;
-	//	this.will = cardxml.Will;
-	//	this.traits = cardxml.Traits;
-	//	this.text = cardxml.Text;
-	//	this.materials = cardxml.Materials;
-	//}
+	public Card(CardXML cardxml)
+	{
+		this.name = cardxml.Name;
+		this.type = cardxml.Type;
+		this.subtype = cardxml.Subtype;
+		this.element = cardxml.Element;
+		this.cost = cardxml.Cost;
+		this.strength = cardxml.Strength;
+		this.armor = cardxml.Armor;
+		this.agility = cardxml.Agility;
+		this.will = cardxml.Will;
+		this.traits = cardxml.Traits;
+		this.text = cardxml.Text;
+		this.materials = cardxml.Materials;
+	}
 
     public void Cast(NetworkPlayer player)
     {

@@ -72,7 +72,7 @@ public class BaratheonNetworkServer : NetworkBehaviour
 			networkPlayer.SaveToXML ();
 		}
 		else {
-			networkPlayer = NetworkPlayer.LoadFromXML (Path.Combine (Application.persistentDataPath, "users/" + playerName + "/player.xml"));
+			networkPlayer.LoadFromXML (playerName);
 		}
 
 		player.gameObject.name = playerName;

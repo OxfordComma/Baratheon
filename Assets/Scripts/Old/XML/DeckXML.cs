@@ -10,11 +10,20 @@ using System.Linq;
 public class DeckXML : CardGroupXML
 {
 	[XmlElement("card")]
-	public List<CardXML> cards;
+	public List<CardXML> XMLCards;
     
 	public DeckXML()
 	{
-		this.cards = new List<CardXML>();
+		this.XMLCards = new List<CardXML>();
+	}
+
+	public Deck ToDeck()
+	{
+		Deck deck = new Deck ();
+		foreach (CardXML cxml in XMLCards) {
+			deck.AddCard (cxml.ToCard ());
+		}
+		return deck;
 	}
 
 	public void Save(string path)

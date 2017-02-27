@@ -92,10 +92,11 @@ public class NetworkPlayer : NetworkBehaviour {
 		pxml.Save (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
 	}
 
-	public void LoadFromXML()
+	public void LoadFromXML(string playerName)
 	{
-		PlayerXML pxml = pxml.Load (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
-
+		PlayerXML pxml = PlayerXML.Load (Path.Combine (Application.persistentDataPath, "users/" + playerName + "/player.xml"));
+		this.name = pxml.name;
+		this.deck = pxml.XMLDeck.ToDeck ();
 	}
 
 //	public void Save(string path)

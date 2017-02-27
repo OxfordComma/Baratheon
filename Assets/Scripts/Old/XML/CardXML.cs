@@ -21,8 +21,15 @@ public class CardXML {
     public string Text;
     public string Materials;
 
+	public CardXML() { }
+
 	public CardXML(string name)
 	{
 		this.Name = name;
+	}
+
+	public Card ToCard()
+	{
+		return new Card (this);
 	}
 }
