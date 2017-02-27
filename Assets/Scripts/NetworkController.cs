@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.NetworkSystem;
+using UnityEngine.SceneManagement;
+
 using System.Collections;
 
-public class NetworkController : MonoBehaviour {
+public class NetworkController : NetworkBehaviour {
 
-    public NetworkPlayer networkPlayer;
+    //public NetworkPlayer networkPlayer;
 	public NetworkClient client;
 	public GameObject networkPlayerPrefab;
 	//public static GameObject networkController;
@@ -18,13 +20,22 @@ public class NetworkController : MonoBehaviour {
 
 		client = new NetworkClient();
 		client.RegisterHandler(MsgType.Connect, OnClientConnected);
+        client.RegisterHandler(MsgType.Ready, OnClientReady);
 		ClientScene.RegisterPrefab (networkPlayerPrefab);
 	}
 
 	private void OnClientConnected(NetworkMessage netMsg)
 	{
-		ClientScene.Ready(netMsg.conn);
+        Debug.Log(playerName);
+        client.Send(1001, new StringMessage(playerName));
+        ClientScene.Ready(netMsg.conn);
         ClientScene.AddPlayer(0);
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    private void OnClientReady(NetworkMessage netMsg)
+    {
+        Debug.Log("Ready");
     }
 
     public static NetworkController GetNetworkController()

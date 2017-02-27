@@ -1,0 +1,534 @@
+<set>
+    <card>
+      <name>Commerce</name>
+      <type>Ability</type>
+      <subtype></subtype>
+      <element></element>
+      <strength></strength>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text>Destroy a friendly Item. Reveal the top 5 cards of your deck. Add an item of the same type to your Inventory.</text>
+      <materials></materials>
+    </card>
+    <card>
+      <name>Diplomatic Solution</name>
+      <type>Ability</type>
+      <subtype></subtype>
+      <element>None</element>
+      <strength></strength>
+      <armor></armor>
+      <agility>min2</agility>
+      <will></will>
+      <traits></traits>
+      <text>React: Prevent all damage to this character.</text>
+      <materials></materials>
+    </card>
+    <card>
+      <name>Hone</name>
+      <type>Ability</type>
+      <subtype></subtype>
+      <element>None</element>
+      <strength></strength>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text>This character's next Sharp or Piercing attack this turn does +2 damage On Hit.</text>
+      <materials></materials>
+    </card>
+    <card>
+      <name>Teleport</name>
+      <type>Ability</type>
+      <subtype></subtype>
+      <element>None</element>
+      <strength></strength>
+      <armor></armor>
+      <agility></agility>
+      <will>min3</will>
+      <traits></traits>
+      <text>Move this character up to 4. Action +1. </text>
+      <materials></materials>
+    </card>
+    <card>
+      <name>Greatship</name>
+      <type>Location</type>
+      <subtype></subtype>
+      <element>Water</element>
+      <strength></strength>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text></text>
+      <materials>Metal, Rope, Hide, Wood</materials>
+    </card>
+    <card>
+      <name>Health Potion</name>
+      <type>Item</type>
+      <subtype>Potion</subtype>
+      <element></element>
+      <strength></strength>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text>Use: Heal 5. Draw a card.</text>
+      <materials>Soul</materials>
+    </card>
+    <card>
+      <name>Leather armor</name>
+      <type>Item</type>
+      <subtype>armor</subtype>
+      <element>None</element>
+      <strength>0</strength>
+      <armor>+2</armor>
+      <agility>0</agility>
+      <will>0</will>
+      <traits>armor, Light, Chest</traits>
+      <text></text>
+      <materials>Hide</materials>
+    </card>
+    <card>
+      <name>Lighthammer</name>
+      <type>Item</type>
+      <subtype>Weapon</subtype>
+      <element>None</element>
+      <strength>+1</strength>
+      <armor>0</armor>
+      <agility>0</agility>
+      <will>0</will>
+      <traits>Hammer, 1-Handed, Blunt</traits>
+      <text></text>
+      <materials>Metal</materials>
+    </card>
+    <card>
+      <name>Long Axe</name>
+      <type>Item</type>
+      <subtype>Weapon</subtype>
+      <element>None</element>
+      <strength>+3</strength>
+      <armor>+1</armor>
+      <agility>-1</agility>
+      <will>0</will>
+      <traits>Axe, 2-Handed, Sharp</traits>
+      <text></text>
+      <materials>Metal</materials>
+    </card>
+    <card>
+      <name>Longbow</name>
+      <type>Item</type>
+      <subtype>Weapon</subtype>
+      <element>None</element>
+      <strength>+4</strength>
+      <armor>-3</armor>
+      <agility>0</agility>
+      <will>0</will>
+      <traits>Bow, 2-Handed, Piercing</traits>
+      <text></text>
+      <materials>Wood, Rope</materials>
+    </card>
+    <card>
+      <name>Longsword</name>
+      <type>Item</type>
+      <subtype>Weapon</subtype>
+      <element>None</element>
+      <strength>+3</strength>
+      <armor>+1</armor>
+      <agility>-1</agility>
+      <will>0</will>
+      <traits>Sword, 2-Handed, Sharp</traits>
+      <text></text>
+      <materials>Metal</materials>
+    </card>
+    <card>
+      <name>Plate armor</name>
+      <type>Item</type>
+      <subtype>armor</subtype>
+      <element>None</element>
+      <strength>0</strength>
+      <armor>+4</armor>
+      <agility>-2</agility>
+      <will>0</will>
+      <traits>armor, Heavy, Chest</traits>
+      <text></text>
+      <materials>Metal, Metal</materials>
+    </card>
+    <card>
+      <name>Short Axe</name>
+      <type>Item</type>
+      <subtype>Weapon</subtype>
+      <element>None</element>
+      <strength>+1</strength>
+      <armor>0</armor>
+      <agility>0</agility>
+      <will>0</will>
+      <traits>Axe, 1-Handed, Sharp</traits>
+      <text></text>
+      <materials>Metal</materials>
+    </card>
+    <card>
+      <name>Shortbow</name>
+      <type>Item</type>
+      <subtype>Weapon</subtype>
+      <element>None</element>
+      <strength>+2</strength>
+      <armor>-2</armor>
+      <agility>0</agility>
+      <will>0</will>
+      <traits>Bow, 2-Handed, Piercing</traits>
+      <text></text>
+      <materials>Wood, Rope</materials>
+    </card>
+    <card>
+      <name>Shortsword</name>
+      <type>Item</type>
+      <subtype>Weapon</subtype>
+      <element>None</element>
+      <strength>+1</strength>
+      <armor>0</armor>
+      <agility>0</agility>
+      <will>0</will>
+      <traits>Sword, 1-Handed, Sharp</traits>
+      <text></text>
+      <materials>Metal</materials>
+    </card>
+    <card>
+      <name>Sledgehammer</name>
+      <type>Item</type>
+      <subtype>Weapon</subtype>
+      <element>None</element>
+      <strength>+3</strength>
+      <armor>+1</armor>
+      <agility>-1</agility>
+      <will>0</will>
+      <traits>Hammer, 2-Handed, Blunt</traits>
+      <text></text>
+      <materials>Metal</materials>
+    </card>
+    <card>
+      <name>Farmhouse</name>
+      <type>Location</type>
+      <subtype></subtype>
+      <element>Earth</element>
+      <strength></strength>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text></text>
+      <materials>Hide, Metal, Rope</materials>
+    </card>
+    <card>
+      <name>Tree-on-Cliff</name>
+      <type>Location</type>
+      <subtype></subtype>
+      <element>Earth</element>
+      <strength></strength>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text></text>
+      <materials>Metal, Wood</materials>
+    </card>
+    <card>
+      <name>Temp1</name>
+      <type></type>
+      <subtype></subtype>
+      <element></element>
+      <strength></strength>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text></text>
+      <materials>Hide, Rope</materials>
+    </card>
+    <card>
+      <name>Fireball</name>
+      <type>Ability</type>
+      <subtype></subtype>
+      <element>Fire</element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will>min2</will>
+      <traits>Destruction</traits>
+      <text>+3 Ranged attack.</text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Desecrate</name>
+      <type>Ability</type>
+      <subtype>Tactic</subtype>
+      <element>Fire</element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits>Destruction</traits>
+      <text>Characters cannot move through target space.</text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Fury</name>
+      <type>Ability</type>
+      <subtype></subtype>
+      <element>Fire</element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text>+3 Might this turn. -3 armor this turn.</text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Channel</name>
+      <type>Ability</type>
+      <subtype></subtype>
+      <element>Fire</element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text>-X Soul: Perform a +X ranged attack.</text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Fire Dagger</name>
+      <type>Ability</type>
+      <subtype>Thief</subtype>
+      <element>Fire</element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will>m1</will>
+      <traits>Conjuration</traits>
+      <text>Equip a +1 Might offhand Sword weapon.</text>
+      <materials>Soul</materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Temp2</name>
+      <type></type>
+      <subtype></subtype>
+      <element></element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text></text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Berserker</name>
+      <type>Character</type>
+      <subtype>Fighter</subtype>
+      <element>Fire</element>
+      <Might>3</Might>
+      <armor>2</armor>
+      <agility>2</agility>
+      <will></will>
+      <traits></traits>
+      <text>
+        O: +2 Melee attack.
+        D: React - After being hit by a basic attack, if the attacking character is in range, perform a -4 basic attack against them.
+      </text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Pyromancer</name>
+      <type>Character</type>
+      <subtype>Mage</subtype>
+      <element>Fire</element>
+      <Might>3</Might>
+      <armor>0</armor>
+      <agility>2</agility>
+      <will></will>
+      <traits></traits>
+      <text>
+        O: +0 Ranged attack.
+        O: Burn target character. Range 2.
+      </text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Fire Rogue</name>
+      <type>Character</type>
+      <subtype>Rogue</subtype>
+      <element>Fire</element>
+      <Might>1</Might>
+      <armor>1</armor>
+      <agility>3</agility>
+      <will></will>
+      <traits></traits>
+      <text>
+        O: 1 damage Melee attack. Draw a card.
+        D: The next attack that targets this character misses.
+      </text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Hero</name>
+      <type>Character</type>
+      <subtype>Fighter</subtype>
+      <element>Fire</element>
+      <Might>5</Might>
+      <armor>4</armor>
+      <agility>2</agility>
+      <will></will>
+      <traits>Leader</traits>
+      <text>
+        O: +2 Melee attack.
+        O: You may move up to 3 spaces in one direction and then make a -2 melee attack.
+        D: The next time an adjacent character would take damage from an opponent's attack, this character takes that damage instead.
+      </text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Rebirth Potion</name>
+      <type>Item</type>
+      <subtype></subtype>
+      <element>Fire</element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text>Use: Recruit a character from the Crypt.</text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Fire Core</name>
+      <type>Location</type>
+      <subtype>Core</subtype>
+      <element>Fire</element>
+      <Might>-</Might>
+      <armor>20</armor>
+      <agility>-</agility>
+      <will></will>
+      <traits></traits>
+      <text>Draw +1. At the end of your turn, discard a card from your hand.</text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Volcano</name>
+      <type>Location</type>
+      <subtype></subtype>
+      <element>Fire</element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits>Quest</traits>
+      <text>
+        Complete: Have 5 or more of your characters on the field.
+        Reward: Draw a card for each of your characters on the field.
+      </text>
+      <materials>Metal</materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Campfire</name>
+      <type>Location</type>
+      <subtype></subtype>
+      <element>Fire</element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text>Characters in this row have +1 Might. Fire characters in this row have +3 Might.</text>
+      <materials>Soul</materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Obsidian Mine</name>
+      <type>Location</type>
+      <subtype></subtype>
+      <element>Fire</element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text>Enter: +3 Soul or +3 Metal.</text>
+      <materials>Metal</materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Heatwell</name>
+      <type>Location</type>
+      <subtype></subtype>
+      <element>Fire</element>
+      <Might></Might>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text>
+        Build: +1 Soul.
+        -3 Soul: Draw a card.
+      </text>
+      <materials>Soul</materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Water Core</name>
+      <type>Location</type>
+      <subtype>Core</subtype>
+      <element>Water</element>
+      <strength>-</strength>
+      <armor>20</armor>
+      <agility>-</agility>
+      <will></will>
+      <traits></traits>
+      <text>Whenever you use a Defensive or Supportive ability, draw a card.</text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Temp3</name>
+      <type>Ability</type>
+      <subtype></subtype>
+      <element></element>
+      <strength></strength>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits></traits>
+      <text></text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+    <card>
+      <name>Earthbind</name>
+      <type>Ability</type>
+      <subtype>Spell</subtype>
+      <element>Earth</element>
+      <strength></strength>
+      <armor></armor>
+      <agility></agility>
+      <will></will>
+      <traits>Root target character. </traits>
+      <text></text>
+      <materials></materials>
+      <Recipe></Recipe>
+    </card>
+</set>
