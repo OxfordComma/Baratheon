@@ -9,30 +9,12 @@ using System.Linq;
 
 public class Deck
 {
-	[XmlArray("cards"), XmlArrayItem("card")]
+	
 	public List<Card> cards;
 
 	public Deck()
 	{
 		this.cards = new List<Card>();
-	}
-
-	public void Save(string path)
-	{
-		var serializer = new XmlSerializer(typeof(Deck));
-		using (var stream = new FileStream(path, FileMode.Create))
-		{
-			serializer.Serialize(stream, this);
-		}
-	}
-
-	public static Deck Load(string path)
-	{
-		var serializer = new XmlSerializer(typeof(Deck));
-		using (var stream = new FileStream(path, FileMode.Open))
-		{
-			return serializer.Deserialize(stream) as Deck;
-		}
 	}
 
     public void AddCard(Card card)

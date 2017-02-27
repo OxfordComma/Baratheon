@@ -12,27 +12,24 @@ public class NetworkPlayer : NetworkBehaviour {
 	public string playerName;
 	public Deck deck;
 
-
-
 	public NetworkPlayer() { }
 
-	[ClientRpc]
-	public void RpcSetName()
-	{
-        CmdSetName(NetworkController.GetNetworkController().playerName);
-	}
+//	[ClientRpc]
+//	public void RpcSetName()
+//	{
+//        CmdSetName(NetworkController.GetNetworkController().playerName);
+//	}
 
-    [Command]
-    public void CmdSetName(string name)
-    {
-        this.name = name;
-        this.playerName = name;
-    }
+//    [Command]
+//    public void CmdSetName(string name)
+//    {
+//        this.name = name;
+//        this.playerName = name;
+//    }
 
     public void Start()
 	{
 		DontDestroyOnLoad (this);
-		this.name = "playerDude";
 	}
 
 	public override void OnStartLocalPlayer()
@@ -91,24 +88,31 @@ public class NetworkPlayer : NetworkBehaviour {
 
 	public void SaveToXML()
 	{
-		Save (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
+		PlayerXML pxml = new PlayerXML (this);
+		pxml.Save (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
 	}
 
-	public void Save(string path)
+	public void LoadFromXML()
 	{
-		var serializer = new XmlSerializer(typeof(NetworkPlayer));
-		using (var stream = new FileStream(path, FileMode.Create))
-		{
-			serializer.Serialize(stream, this);
-		}
+		PlayerXML pxml = pxml.Load (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
+
 	}
 
-	public static NetworkPlayer Load(string path)
-	{
-		var serializer = new XmlSerializer(typeof(NetworkPlayer));
-		using (var stream = new FileStream(path, FileMode.Open))
-		{
-			return serializer.Deserialize(stream) as NetworkPlayer;
-		}
-	}
+//	public void Save(string path)
+//	{
+//		var serializer = new XmlSerializer(typeof(NetworkPlayer));
+//		using (var stream = new FileStream(path, FileMode.Create))
+//		{
+//			serializer.Serialize(stream, this);
+//		}
+//	}
+//
+//	public static NetworkPlayer Load(string path)
+//	{
+//		var serializer = new XmlSerializer(typeof(NetworkPlayer));
+//		using (var stream = new FileStream(path, FileMode.Open))
+//		{
+//			return serializer.Deserialize(stream) as NetworkPlayer;
+//		}
+//	}
 }
