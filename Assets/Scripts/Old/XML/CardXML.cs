@@ -5,6 +5,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Collections;
 
+//	Caps for XML formatting
 public class CardXML {
 	[XmlElement]
     public string Name;
@@ -19,4 +20,9 @@ public class CardXML {
     public string Traits;
     public string Text;
     public string Materials;
+
+	public CardXML(string name)
+	{
+		this.Name = name;
+	}
 }

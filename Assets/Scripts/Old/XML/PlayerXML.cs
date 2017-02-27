@@ -10,17 +10,21 @@ using System.Xml.Serialization;
 public class PlayerXML
 {
 	public string name;
-	public Deck deck;
+	public DeckXML deck;
 
 	public PlayerXML()
 	{
 		this.name = "defaultName";
-		//this.deck = new DeckXML ();
+		this.deck = new DeckXML ();
 	}
 
-	public PlayerXML(Player player, Deck deck)
+	public PlayerXML(NetworkPlayer player)
 	{
 		this.name = player.name;
+		this.deck = new DeckXML ();
+		foreach (Card card in player.deck.cards)
+			this.deck.cards.Add (new CardXML (card.name));
+		
 	}
 
     public void Save(string path)
