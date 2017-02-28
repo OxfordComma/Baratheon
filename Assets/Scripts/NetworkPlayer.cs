@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Networking;
-using System.Collections;
 using System.IO;
-using System.Linq;
 using System.Xml.Serialization;
+using UnityEngine  .SceneManagement;
 
 [XmlRoot("player")]
 public class NetworkPlayer : NetworkBehaviour {
@@ -14,18 +12,18 @@ public class NetworkPlayer : NetworkBehaviour {
 
 	public NetworkPlayer() { }
 
-//	[ClientRpc]
-//	public void RpcSetName()
-//	{
-//        CmdSetName(NetworkController.GetNetworkController().playerName);
-//	}
+    [ClientRpc]
+    public void RpcGoToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 
-//    [Command]
-//    public void CmdSetName(string name)
-//    {
-//        this.name = name;
-//        this.playerName = name;
-//    }
+    //    [Command]
+    //    public void CmdSetName(string name)
+    //    {
+    //        this.name = name;
+    //        this.playerName = name;
+    //    }
 
     public void Start()
 	{
