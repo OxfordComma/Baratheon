@@ -21,6 +21,14 @@ public class Set
         return cards.Where(obj => obj.name == cardName).SingleOrDefault();
     }
 
+    public Dictionary<string, Card> ToDictionary()
+    {
+        Dictionary<string, Card> dict = new Dictionary<string, Card>();
+        foreach (Card card in this.cards)
+            dict.Add(card.name, card);
+        return dict;
+    }
+
 	//public Set(SetXML setxml)
 	//{
 	//	this.cards = new List<Card> ();

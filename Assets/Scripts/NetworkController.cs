@@ -7,7 +7,7 @@ using System.Collections;
 
 public class NetworkController : NetworkBehaviour {
 
-    //public NetworkPlayer networkPlayer;
+    public NetworkPlayer networkPlayer;
 	public NetworkClient client;
 	public GameObject networkPlayerPrefab;
 	//public static GameObject networkController;
@@ -19,18 +19,25 @@ public class NetworkController : NetworkBehaviour {
 		DontDestroyOnLoad (this);
 
 		client = new NetworkClient();
+        client.RegisterHandler(MsgType.AddPlayer, OnClientAddPlayer);
 		client.RegisterHandler(MsgType.Connect, OnClientConnected);
         client.RegisterHandler(MsgType.Ready, OnClientReady);
 		ClientScene.RegisterPrefab (networkPlayerPrefab);
 	}
 
-	private void OnClientConnected(NetworkMessage netMsg)
+    private void OnClientAddPlayer(NetworkMessage netMsg)
+    {
+        networkPlayer = GameObject.FindWithTag("Player").GetComponent<NetworkPlayer>();
+        SceneManager.LoadScene("Main Menu");
+
+    }
+
+    private void OnClientConnected(NetworkMessage netMsg)
 	{
         Debug.Log(playerName);
         client.Send(1001, new StringMessage(playerName));
         ClientScene.Ready(netMsg.conn);
         ClientScene.AddPlayer(0);
-        SceneManager.LoadScene("Main Menu");
     }
 
     private void OnClientReady(NetworkMessage netMsg)
@@ -42,6 +49,11 @@ public class NetworkController : NetworkBehaviour {
 	{
 		return GameObject.Find ("NetworkController").GetComponent<NetworkController> ();
 	}
+
+    public static NetworkPlayer GetNetworkPlayer()
+    {
+        return GetNetworkController().networkPlayer;
+    }
 
 
 }

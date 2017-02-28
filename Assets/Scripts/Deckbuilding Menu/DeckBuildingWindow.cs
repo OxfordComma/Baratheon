@@ -10,18 +10,12 @@ public class DeckBuildingWindow : MonoBehaviour {
 	public Text cardsInDeckText;
 	//CardHandler cardHandler;
 	//PlayerHandler playerHandler;
-    GameObject setListItemPrefab, deckListItemPrefab;
-	GameObject setList, deckList;
+    public GameObject setListItemPrefab, deckListItemPrefab;
+	public GameObject setListWindow, deckListWindow;
 
     // Use this for initialization
     void Start ()
     {
-        setListItemPrefab = Resources.Load("Prefabs/Deckbuilding/SetListItem") as GameObject;
-        deckListItemPrefab = Resources.Load("Prefabs/Deckbuilding/DeckListItem") as GameObject;
-
-        deckList = GameObject.Find("DeckListContent");
-        setList = GameObject.Find("SetListContent");
-
 		List<Card> setCards = GameController.GetGameController ().set.cards;
 		Dictionary<string, Card> setCardsDict = new Dictionary<string, Card> ();
 
@@ -32,7 +26,7 @@ public class DeckBuildingWindow : MonoBehaviour {
             GameObject setListItemObj = Instantiate(setListItemPrefab);
             SetListItem setListItem = setListItemObj.GetComponent<SetListItem>();
             setListItem.SetCard(card);
-            setListItemObj.transform.SetParent(setList.transform);
+            setListItemObj.transform.SetParent(setListWindow.transform);
         }
 
 		string[] playerCards = GameController.GetLocalPlayer ().deck.ToStringArray ();
@@ -43,7 +37,7 @@ public class DeckBuildingWindow : MonoBehaviour {
 			GameObject deckListItemObj = Instantiate (deckListItemPrefab);
 			DeckListItem deckListItem = deckListItemObj.GetComponent<DeckListItem> ();
 			deckListItem.SetCard (card);
-            deckListItem.transform.SetParent (deckList.transform);
+            deckListItem.transform.SetParent (deckListWindow.transform);
 		}
 
 		GameObject.Find("CardCounter").GetComponent<Text>().text = 
