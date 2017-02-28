@@ -17,6 +17,7 @@ public class BaratheonNetworkServer : NetworkBehaviour
 	void Start()
 	{
 		short PlayerNameMessage = 1001;
+		short PlayerFinishedLoading = 1002;
 
 		DontDestroyOnLoad (this);
 		Application.runInBackground = true;
@@ -24,12 +25,11 @@ public class BaratheonNetworkServer : NetworkBehaviour
 		NetworkServer.Listen(7777);
 
 
-		NetworkServer.RegisterHandler(MsgType.Connect, OnConnect);
 		NetworkServer.RegisterHandler(MsgType.AddPlayer, OnAddPlayer);
 		NetworkServer.RegisterHandler(MsgType.RemovePlayer, OnRemovePlayer);
 		NetworkServer.RegisterHandler(MsgType.Disconnect, OnDisconnect);
 //		Player name
-		NetworkServer.RegisterHandler(1001, OnSendPlayerName);
+		NetworkServer.RegisterHandler(PlayerNameMessage, OnSendPlayerName);
 		ClientScene.RegisterPrefab (playerPrefab);
 
 
@@ -42,8 +42,9 @@ public class BaratheonNetworkServer : NetworkBehaviour
 		consoleWindowText.text += text + "\n";
 	}
 
-	private void OnConnect(NetworkMessage netMsg)
+	private void OnAddPlayer(NetworkMessage netMsg)
 	{
+		netMsg.conn.playerControllers [0].gameObject.GetComponent<NetworkPlayer> ().RpcGoToMainMenu ();
 	}
 
 //	Add player once character name is sent
@@ -66,6 +67,7 @@ public class BaratheonNetworkServer : NetworkBehaviour
 		NetworkPlayer networkPlayer = player.GetComponent<NetworkPlayer>();
 
 		if (!users.Contains (playerName)) {
+			WriteToConsole ("New player.");
 			Directory.CreateDirectory (Path.Combine (Application.persistentDataPath, "users/" + networkPlayer.playerName));
 			
 			networkPlayer.deck = new Deck ();
@@ -73,17 +75,13 @@ public class BaratheonNetworkServer : NetworkBehaviour
 		}
 		else {
 			networkPlayer.LoadFromXML (playerName);
+			WriteToConsole ("Loading player " + playerName);
 		}
 
 		player.gameObject.name = playerName;
 		networkPlayer.playerName = playerName;
 
 		NetworkServer.AddPlayerForConnection(netMsg.conn, player, 0);
-		
-	}
-
-	private void OnAddPlayer(NetworkMessage netMsg)
-	{
 		
 	}
 
