@@ -12,6 +12,7 @@ public class Deck
 	
 	public List<Card> cards;
 
+
 	public Deck()
 	{
 		this.cards = new List<Card>();
@@ -53,9 +54,8 @@ public class Deck
 	public SyncListString ToSyncListString()
 	{
 		SyncListString toReturn = new SyncListString ();
-		for (int i = 0; i < cards.Count; i++) {
-			toReturn [i] = cards [i].name;
-		}
+		foreach (Card card in cards)
+			toReturn.Add (card.name);
 		return toReturn;
 	}
 }

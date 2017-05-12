@@ -8,7 +8,8 @@ using UnityEngine  .SceneManagement;
 public class NetworkPlayer : NetworkBehaviour {
 	[SyncVar]
 	public string playerName;
-	public Deck deck;
+	Deck deck;
+	public SyncListString syncDeck;
 
 	public NetworkPlayer() { }
 
@@ -96,6 +97,7 @@ public class NetworkPlayer : NetworkBehaviour {
 		PlayerXML pxml = PlayerXML.Load (Path.Combine (Application.persistentDataPath, "users/" + playerName + "/player.xml"));
 		this.name = pxml.name;
 		this.deck = pxml.XMLDeck.ToDeck ();
+		this.syncDeck = deck.ToSyncListString ();
 	}
 
 //	public void Save(string path)
