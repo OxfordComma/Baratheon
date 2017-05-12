@@ -8,7 +8,7 @@ using UnityEngine  .SceneManagement;
 public class NetworkPlayer : NetworkBehaviour {
 	[SyncVar]
 	public string playerName;
-	Deck deck;
+	public Deck deck;
 	public SyncListString syncDeck;
 
 	public NetworkPlayer() { }
@@ -30,6 +30,7 @@ public class NetworkPlayer : NetworkBehaviour {
     public void Start()
 	{
 		DontDestroyOnLoad (this);
+		syncDeck = new SyncListString ();
 	}
 
 	public override void OnStartLocalPlayer()
