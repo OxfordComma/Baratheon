@@ -66,23 +66,22 @@ public class BaratheonNetworkServer : NetworkBehaviour
 		GameObject player = Instantiate<GameObject>(playerPrefab);
 		NetworkPlayer networkPlayer = player.GetComponent<NetworkPlayer>();
 
+		player.gameObject.name = playerName;
+		networkPlayer.playerName = playerName;
+
+		NetworkServer.AddPlayerForConnection(netMsg.conn, player, 0);
+
 		if (!users.Contains (playerName)) {
 			WriteToConsole ("New player.");
 			Directory.CreateDirectory (Path.Combine (Application.persistentDataPath, "users/" + networkPlayer.playerName));
 			
-			networkPlayer.deck = new Deck ();
+//			networkPlayer.deck = new Deck ();
 			networkPlayer.SaveToXML ();
 		}
 		else {
 			networkPlayer.LoadFromXML (playerName);
 			WriteToConsole ("Loading player " + playerName);
 		}
-
-		player.gameObject.name = playerName;
-		networkPlayer.playerName = playerName;
-
-		NetworkServer.AddPlayerForConnection(netMsg.conn, player, 0);
-		
 	}
 
     private void OnRemovePlayer(NetworkMessage netMsg)

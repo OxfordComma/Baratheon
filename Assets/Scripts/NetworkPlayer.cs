@@ -2,13 +2,13 @@
 using UnityEngine.Networking;
 using System.IO;
 using System.Xml.Serialization;
-using UnityEngine  .SceneManagement;
+using UnityEngine.SceneManagement;
 
 [XmlRoot("player")]
 public class NetworkPlayer : NetworkBehaviour {
 	[SyncVar(hook="SetPlayerObjectName")]
 	public string playerName;
-	public Deck deck;
+	//public Deck deck;
 	public SyncListString syncDeck = new SyncListString();
 
 	public NetworkPlayer() { }
@@ -40,13 +40,13 @@ public class NetworkPlayer : NetworkBehaviour {
 	[Command]
 	public void CmdAddCardToDeck(Card card)
 	{
-		deck.AddCard(card);
+		syncDeck.Add(card.name);
 	}
 
 	[Command]
 	public void CmdRemoveCardFromDeck(Card card)
 	{
-		deck.RemoveCard (card);
+		syncDeck.Remove (card.name);
 	}
 
 	public bool CanAddCardToDeck(Card card)
@@ -57,16 +57,15 @@ public class NetworkPlayer : NetworkBehaviour {
 	public void SaveToXML()
 	{
 		PlayerXML pxml = new PlayerXML (this);
-		pxml.Save (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
-        Debug.Log("Saving player to XML.");
+		pxml.Save (Path.Combine (Application.persistentDataPath, "users/" + playerName + "/player.xml"));
+		Debug.Log("Saving player to " + Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
 	}
 
 	public void LoadFromXML(string playerName)
 	{
 		PlayerXML pxml = PlayerXML.Load (Path.Combine (Application.persistentDataPath, "users/" + playerName + "/player.xml"));
 		this.name = pxml.name;
-		this.deck = pxml.XMLDeck.ToDeck ();
-		this.syncDeck = deck.ToSyncListString ();
-        Debug.Log("Loading player from XML.");
+		this.syncDeck = pxml.XMLDeck.ToDeck ().ToSyncListString();
+		Debug.Log("Loading player from " + Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
     }
 }

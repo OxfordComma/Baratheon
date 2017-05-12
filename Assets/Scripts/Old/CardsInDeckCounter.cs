@@ -12,11 +12,11 @@ public class CardsInDeckCounter : MonoBehaviour {
 		cardsInDeckText = this.gameObject.GetComponent<Text> ();
 
 		GameObject.Find("CardCounter").GetComponent<Text>().text = 
-			GameController.GetGameController().localPlayer.deck.cards.Count.ToString() + "/30";
+			GameController.GetGameController().localPlayer.syncDeck.Count.ToString() + "/30";
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		cardsInDeckText.text = localPlayer.deck.cards.Count.ToString() + "/30";
+		cardsInDeckText.text = localPlayer.syncDeck.Count.ToString() + "/30";
 	}
 }

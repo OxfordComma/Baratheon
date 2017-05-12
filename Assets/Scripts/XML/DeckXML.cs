@@ -26,6 +26,15 @@ public class DeckXML : CardGroupXML
 		return deck;
 	}
 
+	public Deck ToSyncDeck()
+	{
+		Deck deck = new Deck ();
+		foreach (CardXML cxml in XMLCards) {
+			deck.AddCard (cxml.ToCard ());
+		}
+		return deck;
+	}
+
 	public void Save(string path)
 	{
 		var serializer = new XmlSerializer(typeof(DeckXML));
