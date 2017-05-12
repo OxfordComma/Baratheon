@@ -15,6 +15,7 @@ public class NetworkPlayer : NetworkBehaviour {
     [ClientRpc]
     public void RpcGoToMainMenu()
     {
+        NetworkController.GetNetworkController().networkPlayer = this;
         SceneManager.LoadScene("Main Menu");
     }
 

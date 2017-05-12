@@ -851,7 +851,6 @@ GameObject:
   - component: {fileID: 1482544603}
   - component: {fileID: 1482544602}
   - component: {fileID: 1482544601}
-  - component: {fileID: 1482544605}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -939,22 +938,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1482544605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1482544600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1c96c85de51eb146ad448183e5a00fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardsInDeckText: {fileID: 0}
-  setListItemPrefab: {fileID: 0}
-  deckListItemPrefab: {fileID: 0}
-  setListWindow: {fileID: 0}
-  deckListWindow: {fileID: 0}
 --- !u!224 &1512183340 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22423082, guid: bd6e9c2a3799f4ab7a0669c7a180331d,
@@ -1072,8 +1055,8 @@ MonoBehaviour:
   cardsInDeckText: {fileID: 304588239}
   setListItemPrefab: {fileID: 147684, guid: c7f08c7a8705d134bae25f95e81f7055, type: 2}
   deckListItemPrefab: {fileID: 188210, guid: 5f5936ed5e2680d4a8b8e0ce6379249d, type: 2}
-  setListWindow: {fileID: 259606324}
-  deckListWindow: {fileID: 2138243150}
+  setListWindow: {fileID: 1317361201}
+  deckListWindow: {fileID: 213982195}
 --- !u!224 &1710990992
 RectTransform:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class LoginField : NetworkBehaviour {
 		if (Input.GetKeyDown (KeyCode.Return)) {
             NetworkController nc = NetworkController.GetNetworkController();
             nc.playerName = infield.text;
-            nc.client.Connect("192.168.0.101", 7777);
+            nc.client.Connect("192.168.0.105", 7777);
 		}
 	}
 }

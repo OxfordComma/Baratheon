@@ -14,7 +14,7 @@ public class DeckBuildingWindow : MonoBehaviour {
 	public GameObject setListWindow, deckListWindow;
 
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
 		List<Card> setCards = GameController.GetGameController ().set.cards;
 		Dictionary<string, Card> setCardsDict = new Dictionary<string, Card> ();
@@ -24,23 +24,25 @@ public class DeckBuildingWindow : MonoBehaviour {
 			setCardsDict.Add (card.name, card);
 
             GameObject setListItemObj = Instantiate(setListItemPrefab);
+
             SetListItem setListItem = setListItemObj.GetComponent<SetListItem>();
             setListItem.SetCard(card);
             setListItemObj.transform.SetParent(setListWindow.transform);
+
         }
 
-		string[] playerCards = GameController.GetLocalPlayer ().deck.ToStringArray ();
+        string[] playerCards = NetworkController.GetNetworkPlayer().deck.ToStringArray();
 
-		foreach (string cardString in playerCards) 
-		{
-			Card card = setCardsDict [cardString];
-			GameObject deckListItemObj = Instantiate (deckListItemPrefab);
-			DeckListItem deckListItem = deckListItemObj.GetComponent<DeckListItem> ();
-			deckListItem.SetCard (card);
-            deckListItem.transform.SetParent (deckListWindow.transform);
-		}
+        foreach (string cardString in playerCards)
+        {
+            Card card = setCardsDict[cardString];
+            GameObject deckListItemObj = Instantiate(deckListItemPrefab);
+            DeckListItem deckListItem = deckListItemObj.GetComponent<DeckListItem>();
+            deckListItem.SetCard(card);
+            deckListItem.transform.SetParent(deckListWindow.transform);
+        }
 
-		GameObject.Find("CardCounter").GetComponent<Text>().text = 
-			GameController.GetLocalPlayer().deck.cards.Count.ToString() + "/30";
-	}
+        GameObject.Find("CardCounter").GetComponent<Text>().text =
+            GameController.GetLocalPlayer().deck.cards.Count.ToString() + "/30";
+    }
 }	
