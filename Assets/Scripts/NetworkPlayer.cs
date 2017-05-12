@@ -6,10 +6,10 @@ using UnityEngine  .SceneManagement;
 
 [XmlRoot("player")]
 public class NetworkPlayer : NetworkBehaviour {
-	[SyncVar]
+	[SyncVar(hook="SetPlayerObjectName")]
 	public string playerName;
 	public Deck deck;
-	public SyncListString syncDeck;
+	public SyncListString syncDeck = new SyncListString();
 
 	public NetworkPlayer() { }
 
@@ -20,17 +20,15 @@ public class NetworkPlayer : NetworkBehaviour {
         SceneManager.LoadScene("Main Menu");
     }
 
-    //    [Command]
-    //    public void CmdSetName(string name)
-    //    {
-    //        this.name = name;
-    //        this.playerName = name;
-    //    }
+    public void SetPlayerObjectName(string name)
+    {
+        this.gameObject.name = name;
+    }
 
     public void Start()
 	{
 		DontDestroyOnLoad (this);
-		syncDeck = new SyncListString ();
+		//syncDeck = new SyncListString ();
 	}
 
 	public override void OnStartLocalPlayer()
