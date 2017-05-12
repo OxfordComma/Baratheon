@@ -23,12 +23,12 @@ public class NetworkPlayer : NetworkBehaviour {
     public void SetPlayerObjectName(string name)
     {
         this.gameObject.name = name;
+        Debug.Log("Name set to " + name);
     }
 
     public void Start()
 	{
 		DontDestroyOnLoad (this);
-		//syncDeck = new SyncListString ();
 	}
 
 	public override void OnStartLocalPlayer()
@@ -36,11 +36,6 @@ public class NetworkPlayer : NetworkBehaviour {
 		DontDestroyOnLoad (this);
 		Debug.Log ("Starting local player");
 	}
-
-//    public void StartBattle()
-//    {
-//        Draw(3);
-//    }
 
 	[Command]
 	public void CmdAddCardToDeck(Card card)
@@ -54,32 +49,6 @@ public class NetworkPlayer : NetworkBehaviour {
 		deck.RemoveCard (card);
 	}
 
-//    public void CmdShuffleDeck()
-//    {
-//        int n = deck.Count;
-//        while (n > 1)
-//        {
-//            n--;
-//            int k = Random.Range(1, n + 1);
-//            string value = deck[k];
-//            deck[k] = deck[n];
-//            deck[n] = value;
-//        }
-//    }
-//
-//    public void Draw(int numCards)
-//    {
-//        for (int i = 0; i < numCards; i++)
-//        {
-//            GameObject cardInHandObject = GameObject.Instantiate(Resources.Load("Prefabs/Battlefield/CardInHand")) as GameObject;
-//            cardInHandObject.GetComponent<CardInHand>().SetCard(GameController.GetGameController().set.GetCard(deck[0]));
-//            cardInHandObject.name = deck[0];
-//            cardInHandObject.transform.SetParent(GameObject.Find("Hand").transform, false);
-//            cardsInHandSyncList.Add(deck[0]);
-//            deck.Remove(deck[0]);
-//        }
-//    }
-
 	public bool CanAddCardToDeck(Card card)
 	{
 		return true;
@@ -89,6 +58,7 @@ public class NetworkPlayer : NetworkBehaviour {
 	{
 		PlayerXML pxml = new PlayerXML (this);
 		pxml.Save (Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
+        Debug.Log("Saving player to XML.");
 	}
 
 	public void LoadFromXML(string playerName)
@@ -97,23 +67,6 @@ public class NetworkPlayer : NetworkBehaviour {
 		this.name = pxml.name;
 		this.deck = pxml.XMLDeck.ToDeck ();
 		this.syncDeck = deck.ToSyncListString ();
-	}
-
-//	public void Save(string path)
-//	{
-//		var serializer = new XmlSerializer(typeof(NetworkPlayer));
-//		using (var stream = new FileStream(path, FileMode.Create))
-//		{
-//			serializer.Serialize(stream, this);
-//		}
-//	}
-//
-//	public static NetworkPlayer Load(string path)
-//	{
-//		var serializer = new XmlSerializer(typeof(NetworkPlayer));
-//		using (var stream = new FileStream(path, FileMode.Open))
-//		{
-//			return serializer.Deserialize(stream) as NetworkPlayer;
-//		}
-//	}
+        Debug.Log("Loading player from XML.");
+    }
 }
