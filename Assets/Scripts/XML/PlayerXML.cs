@@ -22,8 +22,8 @@ public class PlayerXML
 	{
 		this.name = player.name;
 		this.XMLDeck = new DeckXML ();
-		foreach (Card card in player.deck.cards)
-			this.XMLDeck.XMLCards.Add (new CardXML (card.name));
+		foreach (string cardString in player.syncDeck)
+			this.XMLDeck.XMLCards.Add (new CardXML (cardString));
 		
 	}
 

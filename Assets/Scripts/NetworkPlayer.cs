@@ -9,7 +9,7 @@ public class NetworkPlayer : NetworkBehaviour {
 	[SyncVar(hook="SetPlayerObjectName")]
 	public string playerName;
 	//public Deck deck;
-	public SyncListString syncDeck = new SyncListString();
+	public SyncListString syncListStringDeck = new SyncListString();
 
 	public NetworkPlayer() { }
 
@@ -40,13 +40,13 @@ public class NetworkPlayer : NetworkBehaviour {
 	[Command]
 	public void CmdAddCardToDeck(Card card)
 	{
-		syncDeck.Add(card.name);
+		syncListStringDeck.Add(card.name);
 	}
 
 	[Command]
 	public void CmdRemoveCardFromDeck(Card card)
 	{
-		syncDeck.Remove (card.name);
+		syncListStringDeck.Remove (card.name);
 	}
 
 	public bool CanAddCardToDeck(Card card)
@@ -65,7 +65,7 @@ public class NetworkPlayer : NetworkBehaviour {
 	{
 		PlayerXML pxml = PlayerXML.Load (Path.Combine (Application.persistentDataPath, "users/" + playerName + "/player.xml"));
 		this.name = pxml.name;
-		this.syncDeck = pxml.XMLDeck.ToDeck ().ToSyncListString();
+		this.syncListStringDeck = pxml.XMLDeck.ToDeck ().ToSyncListString();
 		Debug.Log("Loading player from " + Path.Combine (Application.persistentDataPath, "users/" + this.name + "/player.xml"));
     }
 }
