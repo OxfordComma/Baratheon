@@ -31,7 +31,7 @@ public class DeckBuildingWindow : MonoBehaviour {
 
         }
 
-		string[] playerCards = NetworkController.GetNetworkPlayer ().syncDeck.ToArray<string> ();
+		string[] playerCards = NetworkController.GetNetworkPlayer ().syncListStringDeck.ToArray<string> ();
 
         foreach (string cardString in playerCards)
         {
@@ -43,6 +43,6 @@ public class DeckBuildingWindow : MonoBehaviour {
         }
 
         GameObject.Find("CardCounter").GetComponent<Text>().text =
-            GameController.GetLocalPlayer().syncDeck.Count.ToString() + "/30";
+            GameController.GetLocalPlayer().syncListStringDeck.Count.ToString() + "/30";
     }
 }	

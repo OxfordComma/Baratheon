@@ -22,7 +22,7 @@ public class DeckListItem : ListItem {
 		GameController.GetLocalPlayer().CmdRemoveCardFromDeck(card);
 		GameController.GetLocalPlayer().SaveToXML();
 		GameObject.Find("CardCounter").GetComponent<Text>().text = 
-			GameController.GetLocalPlayer().syncDeck.Count.ToString() + "/30";
+			GameController.GetLocalPlayer().syncListStringDeck.Count.ToString() + "/30";
 		
         Destroy(this.gameObject);
 		GameController.GetLocalPlayer().SaveToXML();

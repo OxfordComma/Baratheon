@@ -22,7 +22,7 @@ public class PlayerXML
 	{
 		this.name = player.name;
 		this.XMLDeck = new DeckXML ();
-		foreach (string cardString in player.syncDeck)
+		foreach (string cardString in player.syncListStringDeck)
 			this.XMLDeck.XMLCards.Add (new CardXML (cardString));
 		
 	}

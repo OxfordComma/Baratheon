@@ -26,7 +26,7 @@ public class DeckXML : CardGroupXML
 		return deck;
 	}
 
-	public Deck ToSyncDeck()
+	public Deck TosyncListStringDeck()
 	{
 		Deck deck = new Deck ();
 		foreach (CardXML cxml in XMLCards) {
