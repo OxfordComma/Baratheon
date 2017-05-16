@@ -40,15 +40,15 @@ public class NetworkPlayer : NetworkBehaviour {
 	[Command]
 	public void CmdAddCardToDeck(Card card)
 	{
-		Debug.Log ("CmdAddCardToDeck");
-		syncListStringDeck.Add(card.name);
+		if (!isLocalPlayer)
+			syncListStringDeck.Add(card.name);
 	}
 
 	[Command]
 	public void CmdRemoveCardFromDeck(Card card)
 	{
-		Debug.Log ("CmdRemoveCardToDeck");
-		syncListStringDeck.Remove (card.name);
+		if (!isLocalPlayer)
+			syncListStringDeck.Remove (card.name);
 	}
 
 	public bool CanAddCardToDeck(Card card)
