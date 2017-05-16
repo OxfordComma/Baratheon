@@ -9,7 +9,7 @@ public class NetworkPlayer : NetworkBehaviour {
 	[SyncVar(hook="SetPlayerObjectName")]
 	public string playerName;
 	//public Deck deck;
-	public SyncListString syncListStringDeck;
+	public SyncListString syncListStringDeck = new SyncListString ();
 
 	public NetworkPlayer() { }
 
@@ -34,19 +34,20 @@ public class NetworkPlayer : NetworkBehaviour {
 	public override void OnStartLocalPlayer()
 	{
 		DontDestroyOnLoad (this);
-		syncListStringDeck = new SyncListString ();
 		Debug.Log ("Starting local player");
 	}
 
 	[Command]
 	public void CmdAddCardToDeck(Card card)
 	{
+		Debug.Log ("CmdAddCardToDeck");
 		syncListStringDeck.Add(card.name);
 	}
 
 	[Command]
 	public void CmdRemoveCardFromDeck(Card card)
 	{
+		Debug.Log ("CmdRemoveCardToDeck");
 		syncListStringDeck.Remove (card.name);
 	}
 
