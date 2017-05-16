@@ -63,6 +63,7 @@ public class BaratheonNetworkServer : NetworkBehaviour
 		string userPath = Path.Combine (Application.persistentDataPath, "users").ToString ();
 		string[] users = Directory.GetDirectories (userPath).Select (path => Path.GetFileName (path)).ToArray ();
 
+        //Player objects
 		GameObject player = Instantiate<GameObject>(playerPrefab);
 		NetworkPlayer networkPlayer = player.GetComponent<NetworkPlayer>();
 
