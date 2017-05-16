@@ -9,7 +9,7 @@ public class NetworkPlayer : NetworkBehaviour {
 	[SyncVar(hook="SetPlayerObjectName")]
 	public string playerName;
 	//public Deck deck;
-	public SyncListString syncListStringDeck = new SyncListString();
+	public SyncListString syncListStringDeck;
 
 	public NetworkPlayer() { }
 
@@ -34,6 +34,7 @@ public class NetworkPlayer : NetworkBehaviour {
 	public override void OnStartLocalPlayer()
 	{
 		DontDestroyOnLoad (this);
+		syncListStringDeck = new SyncListString ();
 		Debug.Log ("Starting local player");
 	}
 
